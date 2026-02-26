@@ -2,7 +2,8 @@ export const BASE_URL = "https://api.themoviedb.org/3/";
 
 export const ENDPOINTS = {
   TRENDING: (time: "day" | "week") => `trending/all/${time}`,
-  SEARCH:  `search/multi`,
+  SEARCH: `search/multi`,
+  GENRES: (category: "movie" | "tv") => `genre/${category}/list`,
 };
 export const MOVIE_ENDPOINTS = {
   NOW_PLAYING: `movie/now_playing`,

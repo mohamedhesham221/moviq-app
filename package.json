@@ -1,5 +1,5 @@
 {
-  "name": "streamio",
+  "name": "moviq",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
@@ -48,7 +48,6 @@
     "react-native-web": "~0.21.0",
     "react-native-worklets": "0.5.1",
     "tailwindcss": "^3.4.17",
-    "undefined": "@expo/vector-icons/MaterialCommunityIcons",
     "yup": "^1.7.1"
   },
   "devDependencies": {

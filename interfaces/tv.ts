@@ -39,6 +39,6 @@ export interface Tv {
   status: string;
   tagline: string;
   type: string;
-  vote_average: number;
+  vote_average: string;
   vote_count: number;
 }

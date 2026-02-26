@@ -15,6 +15,7 @@ export interface Genre {
   id: number;
   name: string;
 }
+export type Genres = Genre[]
 export interface SpokenLanguage {
   english_name: string;
   iso_639_1: string;

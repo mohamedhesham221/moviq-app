@@ -17,15 +17,14 @@ const TrendingItem = ({
   backdrop_path,
 }: Trend) => {
   return (
-    <TouchableOpacity className="space-y-4 w-[300px] mt-4" onPress={() => console.log("Item number", id)
-    }>
+    <View className="space-y-4 w-[300px] mt-4">
       <View className="w-full h-[200px] rounded-xl overflow-hidden mb-4 relative">
         <ImageBackground
           source={{ uri: `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdrop_path}` }}
           className="w-full h-full"
           resizeMode="cover"
         >
-          <Pressable onPress={() => console.log(id,"Bookmarked")}>
+          <Pressable onPress={() => console.log(id, "Bookmarked")}>
             <MaterialCommunityIcons
               name="bookmark"
               size={24}
@@ -36,16 +35,33 @@ const TrendingItem = ({
         </ImageBackground>
       </View>
 
-      <Text className="text-white text-xl font-poppins-bold">
-        {title || name}
-      </Text>
-      <View className="flex-row justify-start items-center gap-2">
-        <MaterialCommunityIcons name="star" color="#ffc700" size={22} />
-        <Text className="text-white text-xl mt-2 font-poppins-bold">
-          {Number(vote_average).toFixed(1)}
+      <TouchableOpacity onPress={() => console.log("Item number", id)}>
+        <Text className="text-white text-xl font-poppins-bold">
+          {title || name}
         </Text>
+      </TouchableOpacity>
+      <View className="flex-row justify-start items-center gap-2">
+        {Number(vote_average) === 0.0 ? (
+          <>
+            <MaterialCommunityIcons
+              name="star-outline"
+              color="#888888"
+              size={22}
+            />
+            <Text className="text-gray-color text-xl  font-poppins-bold">
+              {Number(vote_average).toFixed(1)}
+            </Text>
+          </>
+        ) : (
+          <>
+            <MaterialCommunityIcons name="star" color="#ffc700" size={22} />
+            <Text className="text-white text-xl  font-poppins-bold">
+              {Number(vote_average).toFixed(1)}
+            </Text>
+          </>
+        )}
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

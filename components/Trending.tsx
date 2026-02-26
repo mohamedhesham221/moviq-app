@@ -1,4 +1,4 @@
-import { View, Text, FlatList} from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React from "react";
 import { ENDPOINTS } from "@/constants/apiRoutes";
 import { fetcher } from "@/services/api/handleRequest";
@@ -7,6 +7,7 @@ import TrendingFilters from "./TrendingFilters";
 import TrendingSkeleton from "./skeletons/TrendingSkeleton";
 import { TMDBResponse, Trend } from "@/interfaces/api";
 import TrendingItem from "./TrendingItem";
+import SectionHeader from "./SectionHeader";
 const Trending = () => {
   const [timeframe, setTimeframe] = React.useState<"day" | "week">("day");
   const { data, isLoading, error } = useQuery<TMDBResponse<Trend>>({
@@ -15,7 +16,8 @@ const Trending = () => {
   });
 
   return (
-    <View className="my-4 px-2">
+    <View className="px-2">
+      <SectionHeader text="Trending" showBackButton={false} />
       <TrendingFilters timeframe={timeframe} setTimeframe={setTimeframe} />
       <FlatList
         horizontal

@@ -1,21 +1,12 @@
-import { View, Text, ScrollView } from "react-native";
+import { View } from "react-native";
 import React from "react";
-import SectionHeader from "@/components/SectionHeader";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Trending from "@/components/Trending";
-import HomeSkeleton from "@/components/skeletons/HomeSkeleton";
+import Latest from "@/components/Latest";
 
 const home = () => {
   return (
-    <SafeAreaView className="bg-black-color flex-1">
-      <ScrollView
-        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 56 }}
-      >
-        <SectionHeader text="Trending" showBackButton={false} />
-        <Trending />
-        <HomeSkeleton />
-      </ScrollView>
-    </SafeAreaView>
+    <View className="bg-black-color flex-1 px-5 py-10">
+        <Latest />
+    </View>
   );
 };
 

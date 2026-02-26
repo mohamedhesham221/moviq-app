@@ -7,7 +7,7 @@ export function useGenres(category: "movie" | "tv") {
     queryKey: ["genres", category],
     queryFn: () => fetcher<Genres>(ENDPOINTS.GENRES(category)),
   });
-  const genres = data;
+  const genres = data?.genres || [];
   
   return {genres}
 }

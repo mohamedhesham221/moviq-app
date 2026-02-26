@@ -46,16 +46,16 @@ const TrendingItem = ({
             <MaterialCommunityIcons
               name="star-outline"
               color="#888888"
-              size={22}
+              size={18}
             />
-            <Text className="text-gray-color text-xl  font-poppins-bold">
+            <Text className="text-gray-color text-lg  font-poppins-bold">
               {Number(vote_average).toFixed(1)}
             </Text>
           </>
         ) : (
           <>
-            <MaterialCommunityIcons name="star" color="#ffc700" size={22} />
-            <Text className="text-white text-xl  font-poppins-bold">
+            <MaterialCommunityIcons name="star" color="#ffc700" size={18} />
+            <Text className="text-white text-lg  font-poppins-bold">
               {Number(vote_average).toFixed(1)}
             </Text>
           </>

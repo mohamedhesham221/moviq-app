@@ -18,7 +18,7 @@ type Media = {
 const Latest = () => {
   const { movies } = useNowPlaying();
   const { series } = useOnTheAir();
-  
+
   const DATA: {
     title: string;
     data: Media[];
@@ -32,24 +32,26 @@ const Latest = () => {
       data: series || [],
     },
   ];
-
+  const isEmpty = DATA.every((section) => section.data.length === 0);
   return (
     <SectionList
       sections={DATA}
       keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <LatestItem item={item}/>}
+      renderItem={({ item }) => <LatestItem item={item} />}
       renderSectionHeader={({ section: { title } }) => (
-        <View style={{marginTop: 15}}>
-        <SectionHeader text={title} showBackButton={false} />
+        <View style={{ marginTop: 20 }}>
+          <SectionHeader text={title} showBackButton={false} />
         </View>
       )}
       ListHeaderComponent={Trending}
       ListEmptyComponent={() =>
-        Array.from({ length: 3 }).map((_, index) => (
-          <View key={index}>
-            <LatestSkeleton />
-          </View>
-        ))
+        isEmpty ? (
+          <>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <LatestSkeleton key={index} />
+            ))}
+          </>
+        ) : null
       }
       showsVerticalScrollIndicator={false}
     />

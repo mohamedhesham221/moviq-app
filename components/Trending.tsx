@@ -24,6 +24,7 @@ const Trending = () => {
         className="py-4"
         contentContainerClassName="flex-row gap-4"
         showsHorizontalScrollIndicator={false}
+        nestedScrollEnabled
         data={data?.results ?? []}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (

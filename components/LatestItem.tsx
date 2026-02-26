@@ -24,9 +24,7 @@ type LatestProps = {
 };
 const LatestItem = ({ item }: LatestProps) => {
     const {genres} = useGenres('movie');
-  console.log("Genres List",genres);
-  console.log("Genres Item", item.genre_ids);
-  
+    const itemGenres = genres.filter((genre) => item.genre_ids?.includes(genre.id));    
   return (
     <View className="w-full h-72 mt-8 flex-row gap-4 items-stretch">
       {/**Poster */}
@@ -68,7 +66,7 @@ const LatestItem = ({ item }: LatestProps) => {
             </>
           ) : (
             <>
-              <MaterialCommunityIcons name="star" color="#ffc700" size={20} />
+              <MaterialCommunityIcons name="star" color="#ffc700" size={18} />
               <Text className="text-white text-lg  font-poppins-bold">
                 {Number(item.vote_average).toFixed(1)}
               </Text>
@@ -76,11 +74,15 @@ const LatestItem = ({ item }: LatestProps) => {
           )}
         </View>
         {/**Genres */}
-        <View className="w-3/4 h-4 bg-skeleton-background rounded mt-2" />
+        <View className="mt-2">
+          <Text className="text-gray-color text-xs font-poppins-regular">
+            {itemGenres.map((genre) => genre.name).join(", ")}
+          </Text>
+        </View>
         {/**Overview */}
         <View className="w-full flex-1 mt-6">
           <Text
-            className="text-gray-color text-sm  font-poppins-regular"
+            className="text-gray-color text-sm font-poppins-regular"
             numberOfLines={6}
           >
             {item.overview}

@@ -26,7 +26,7 @@ export default function Index() {
           </Text>
           <View className="w-full space-y-4 justify-center items-center">
             <AppButton
-              text="Create An Account"
+              text="Login to your Account"
               className="rounded-full"
               onPress={toSignUp}
             />

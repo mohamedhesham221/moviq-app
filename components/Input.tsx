@@ -2,7 +2,7 @@ import { View, TextInput, TextInputProps } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
 
-type IconName = keyof typeof MaterialCommunityIcons.glyphMap;
+import { IconName } from "@/interfaces/icon";
 interface InputProps extends TextInputProps {
   icon: IconName;
 }

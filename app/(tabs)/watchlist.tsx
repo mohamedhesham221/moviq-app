@@ -1,12 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
+import Protected from "@/components/auth/Protected";
 
 const watchlist = () => {
   return (
-    <View>
-      <Text>watchlist</Text>
-    </View>
-  )
-}
+    <Protected>
+      <View>
+        <Text>watchlist</Text>
+      </View>
+    </Protected>
+  );
+};
 
-export default watchlist
+export default watchlist;

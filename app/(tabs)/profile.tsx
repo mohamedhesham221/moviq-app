@@ -6,8 +6,10 @@ import PersonalInfo from "@/components/user/PersonalInfo";
 import Divider from "@/components/Divider";
 import LogoutButton from "@/components/user/LogoutButton";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Protected from "@/components/auth/Protected";
 const profile = () => {
   return (
+    <Protected>
     <SafeAreaProvider>
       <SafeAreaView className="bg-black-color flex-1 justify-center px-5 py-10">
         <ProfileHeader />
@@ -24,6 +26,7 @@ const profile = () => {
         <LogoutButton />
       </SafeAreaView>
     </SafeAreaProvider>
+    </Protected>
   );
 };
 

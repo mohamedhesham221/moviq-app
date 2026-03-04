@@ -1,12 +1,14 @@
-import { View, Text } from "react-native";
 import React from "react";
-import Protected from "@/components/auth/Protected";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import PersonalWatchlist from "@/components/watchlist/PersonalWatchlist";
 
 const watchlist = () => {
   return (
-      <View>
-        <Text>watchlist</Text>
-      </View>
+    <SafeAreaProvider>
+      <SafeAreaView className="bg-black-color flex-1 justify-center px-5 py-10">
+       <PersonalWatchlist />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

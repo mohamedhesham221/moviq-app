@@ -1,8 +1,12 @@
 import { account } from "./appwrite";
-import { ID} from "react-native-appwrite";
+import { ID } from "react-native-appwrite";
 import type { RegisterProps, LoginProps } from "@/constants/authSchema";
 
-export const createAccount = async ({ email, password, name }: RegisterProps) => {
+export const createAccount = async ({
+  email,
+  password,
+  name,
+}: RegisterProps) => {
   return await account.create({ userId: ID.unique(), email, password, name });
 };
 
@@ -18,14 +22,18 @@ export const logout = async () => {
   return await account.deleteSession({ sessionId: "current" });
 };
 
-export const updateEmail = async (email: string) => {
-  return await account.updateEmail({ email, password: "current" });
+export const updateEmail = async (email: string, password = "current") => {
+  return await account.updateEmail({ email, password });
 };
 
 export const updateName = async (name: string) => {
   return await account.updateName({ name });
 };
 
-export const updatePassword = async (password: string) => {
-  return await account.updatePassword({ password, oldPassword: "current" });
+export const updatePassword = async (
+  password: string,
+  oldPassword : string,
+) => {
+  return await account.updatePassword({ password, oldPassword });
 };
+

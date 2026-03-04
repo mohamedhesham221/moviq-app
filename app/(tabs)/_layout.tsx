@@ -1,7 +1,8 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import React from "react";
 import { Text } from "react-native";
+import { getAccount } from "@/services/userAuth";
 interface StyleScheme {
   background: string;
   activeTint: string;
@@ -19,7 +20,7 @@ const TabsLayout = () => {
     <Tabs
       screenOptions={{
         headerShown: false,
-        
+
         tabBarStyle: {
           backgroundColor: styles.background,
           height: 70,
@@ -78,6 +79,18 @@ const TabsLayout = () => {
       />
       <Tabs.Screen
         name="watchlist"
+        listeners={{
+          tabPress: async (e) => {
+            try {
+              await getAccount();
+            } catch (error) {
+              e.preventDefault();
+              console.log(error);
+              router.replace("/(auth)/login");
+              alert("Please log in to access your watchlist.");
+            }
+          },
+        }}
         options={{
           tabBarLabel: ({ focused }) =>
             focused ? (
@@ -99,6 +112,18 @@ const TabsLayout = () => {
       />
       <Tabs.Screen
         name="profile"
+        listeners={{
+          tabPress: async (e) => {
+            try {
+              await getAccount();
+            } catch (error) {
+              e.preventDefault();
+              console.log(error);
+              router.replace("/(auth)/login");
+              alert("Please log in to access your profile.");
+            }
+          },
+        }}
         options={{
           tabBarLabel: ({ focused }) =>
             focused ? (

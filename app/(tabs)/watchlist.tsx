@@ -4,11 +4,9 @@ import Protected from "@/components/auth/Protected";
 
 const watchlist = () => {
   return (
-    <Protected>
       <View>
         <Text>watchlist</Text>
       </View>
-    </Protected>
   );
 };
 

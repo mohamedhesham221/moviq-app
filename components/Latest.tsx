@@ -33,6 +33,16 @@ const Latest = () => {
     },
   ];
   const isEmpty = DATA.every((section) => section.data.length === 0);
+  if (isEmpty) {
+    return (
+      <View style={{ padding: 20 }}>
+        <SectionHeader text="Latest" showBackButton={false} />
+        {Array.from({ length: 3 }).map((_, index) => (
+          <LatestSkeleton key={index} />
+        ))}
+      </View>
+    );
+  }
   return (
     <SectionList
       sections={DATA}
@@ -44,15 +54,6 @@ const Latest = () => {
         </View>
       )}
       ListHeaderComponent={Trending}
-      ListEmptyComponent={() =>
-        isEmpty ? (
-          <>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <LatestSkeleton key={index} />
-            ))}
-          </>
-        ) : null
-      }
       showsVerticalScrollIndicator={false}
     />
   );

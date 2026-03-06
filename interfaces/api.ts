@@ -73,3 +73,5 @@ export interface Creator {
   gender: number;
   profile_path: string | null;
 }
+
+export type MediaFilter = "now_playing" | "upcoming" | "popular" | "top_rated" |"airing_today" | "on_the_air"

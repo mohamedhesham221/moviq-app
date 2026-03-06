@@ -37,7 +37,7 @@ const Latest = () => {
       title: "On The Air",
       data: series || [],
       footerTitle: "see more",
-      sectionHref: "/shows",
+      sectionHref: "/series",
     },
   ];
   const isEmpty = DATA.every((section) => section.data.length === 0);

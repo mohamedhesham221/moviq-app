@@ -1,15 +1,15 @@
+import React from 'react'
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import React from "react";
-import Movies from "@/components/movies/Movies";
+import Series from '@/components/series/Series';
 
-const movies = () => {
+const series = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1 justify-start px-5 py-10">
-        <Movies />
+        <Series />
       </SafeAreaView>
     </SafeAreaProvider>
-  );
-};
+  )
+}
 
-export default movies;
+export default series

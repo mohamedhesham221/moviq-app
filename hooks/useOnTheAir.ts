@@ -10,7 +10,7 @@ export const useOnTheAir = () => {
     isLoading,
   } = useQuery<TMDBResponse<Tv>>({
     queryKey: ["latest-series"],
-    queryFn: () => fetcher<TMDBResponse<Tv>>(SERIES_ENDPOINTS.ON_THE_AIR),
+    queryFn: () => fetcher<TMDBResponse<Tv>>(SERIES_ENDPOINTS.SERIES('on_the_air')),
   });
 const series = data?.results.slice(0,5)
   return {series}

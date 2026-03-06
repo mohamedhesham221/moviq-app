@@ -57,6 +57,20 @@ export default function RootLayout() {
                 contentStyle: { backgroundColor: "#111111" },
               }}
             />
+            <Stack.Screen
+              name="movies"
+              options={{
+                headerShown: false,
+                contentStyle: { backgroundColor: "#111111" },
+              }}
+            />
+            <Stack.Screen
+              name="series"
+              options={{
+                headerShown: false,
+                contentStyle: { backgroundColor: "#111111" },
+              }}
+            />
           </Stack>
         </QueryClientProvider>
       </SafeAreaProvider>

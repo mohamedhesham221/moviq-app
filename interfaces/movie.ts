@@ -7,10 +7,10 @@ import type {
 
 export interface Movie {
   title: string;
-  id: number;
+  id: string;
   vote_average: string;
-  backdrop_path: string | null;
-  poster_path: string | null;
+  backdrop_path: string;
+  poster_path: string ;
   budget: number;
   genres: Genre[];
   homepage: string;

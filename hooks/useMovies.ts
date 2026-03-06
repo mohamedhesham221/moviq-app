@@ -4,11 +4,11 @@ import { MOVIE_ENDPOINTS } from "@/constants/apiRoutes";
 import { fetcher } from "@/services/api/handleRequest";
 import { useQuery } from "@tanstack/react-query";
 
-export const useNowPlaying = () => {
+export function useMovies(path: string) {
   const { data, isError, isLoading } = useQuery<TMDBResponse<Movie>>({
-    queryKey: ["latest-movies"],
-    queryFn: () => fetcher<TMDBResponse<Movie>>(MOVIE_ENDPOINTS.MOVIES('now_playing')),
+    queryKey: ["movies", path],
+    queryFn: () => fetcher<TMDBResponse<Movie>>(MOVIE_ENDPOINTS.MOVIES(path)),
   });
-  const movies = data?.results.slice(0, 5);
-  return { movies };
-};
+  const movies = data?.results ?? [];
+  return {movies, isError, isLoading};
+}

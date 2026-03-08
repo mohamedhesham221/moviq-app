@@ -25,7 +25,7 @@ const PosterItem = ({ poster, title }: { poster: string; title: string }) => {
         style={{ aspectRatio: 2 / 3 }}
         imageStyle={{ borderRadius: 8 }}
       >
-        <GradientComponent>
+        <GradientComponent startY={1.35}>
           <View className="flex-1 justify-end">
           <Text className="text-white font-poppins-bold text-center mt-1">
             {title}

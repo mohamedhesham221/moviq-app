@@ -1,4 +1,4 @@
-import { View, Text, SectionList } from "react-native";
+import { View, SectionList } from "react-native";
 import React from "react";
 import SectionHeader from "@/components/SectionHeader";
 import { useNowPlaying } from "@/hooks/useNowPlaying";

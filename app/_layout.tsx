@@ -16,7 +16,6 @@ SplashScreen.preventAutoHideAsync();
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
-  
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_700Bold,
@@ -66,6 +65,20 @@ export default function RootLayout() {
             />
             <Stack.Screen
               name="series"
+              options={{
+                headerShown: false,
+                contentStyle: { backgroundColor: "#111111" },
+              }}
+            />
+            <Stack.Screen
+              name="media/movie/[id]"
+              options={{
+                headerShown: false,
+                contentStyle: { backgroundColor: "#111111" },
+              }}
+            />
+            <Stack.Screen
+              name="media/tv/[id]"
               options={{
                 headerShown: false,
                 contentStyle: { backgroundColor: "#111111" },

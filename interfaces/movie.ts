@@ -7,7 +7,7 @@ import type {
 
 export interface Movie {
   title: string;
-  id: string;
+  id: number;
   vote_average: string;
   backdrop_path: string;
   poster_path: string ;

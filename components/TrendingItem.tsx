@@ -9,6 +9,7 @@ import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Trend } from "@/interfaces/api";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
+import { navigateMovie} from "@/utils/navigate";
 const TrendingItem = ({
   title,
   id,
@@ -35,7 +36,7 @@ const TrendingItem = ({
         </ImageBackground>
       </View>
 
-      <TouchableOpacity onPress={() => console.log("Item number", id)}>
+      <TouchableOpacity onPress={() => navigateMovie(id)}>
         <Text className="text-white text-xl font-poppins-bold">
           {title || name}
         </Text>

@@ -10,6 +10,7 @@ import { POSTER_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
 import { useGenres } from "@/hooks/useGenres";
 
 import React from "react";
+import { navigateMovie, navigateTv } from "@/utils/navigate";
 type Media = {
   id: number;
   title?: string;
@@ -17,36 +18,42 @@ type Media = {
   poster_path: string | null;
   overview: string;
   vote_average: string;
-  genre_ids?: number[]
+  genre_ids?: number[];
 };
 type LatestProps = {
   item: Media;
 };
 const LatestItem = ({ item }: LatestProps) => {
-    const {genres} = useGenres('movie');
-    const itemGenres = genres.filter((genre) => item.genre_ids?.includes(genre.id));    
+  const { genres } = useGenres("movie");
+  const itemGenres = genres.filter((genre) =>
+    item.genre_ids?.includes(genre.id),
+  );
   return (
     <View className="w-full h-72 mt-8 flex-row gap-4 items-stretch">
       {/**Poster */}
-        <ImageBackground
-          source={{ uri: `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}` }}
-          className="flex-1 rounded-lg relative overflow-hidden"
-          resizeMode="cover"
-        >
-          {/**Bookmark */}
-          <Pressable onPress={() => console.log(item.id, "Bookmarked")}>
-            <MaterialCommunityIcons
-              name="bookmark"
-              size={24}
-              color="white"
-              className="absolute top-2 right-4"
-            />
-          </Pressable>
-        </ImageBackground>
+      <ImageBackground
+        source={{ uri: `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}` }}
+        className="flex-1 rounded-lg relative overflow-hidden"
+        resizeMode="cover"
+      >
+        {/**Bookmark */}
+        <Pressable onPress={() => console.log(item.id, "Bookmarked")}>
+          <MaterialCommunityIcons
+            name="bookmark"
+            size={24}
+            color="white"
+            className="absolute top-2 right-4"
+          />
+        </Pressable>
+      </ImageBackground>
       {/**Details */}
       <View className="flex-1">
         {/**Title */}
-        <TouchableOpacity onPress={() => console.log("Item number", item.id)}>
+        <TouchableOpacity
+          onPress={() =>
+            item.title ? navigateMovie(item.id) : navigateTv(item.id)
+          }
+        >
           <Text className="text-white text-xl font-poppins-bold">
             {item.title || item.name}
           </Text>

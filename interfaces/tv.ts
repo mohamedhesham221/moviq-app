@@ -16,7 +16,7 @@ export interface Tv {
   first_air_date: string;
   genres: Genre[];
   homepage: string;
-  id: string;
+  id: number;
   in_production: boolean;
   languages: string[];
   last_air_date: string;

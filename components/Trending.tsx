@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React from "react";
 import { ENDPOINTS } from "@/constants/apiRoutes";
 import { fetcher } from "@/services/api/handleRequest";

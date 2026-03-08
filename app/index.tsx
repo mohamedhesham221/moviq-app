@@ -16,7 +16,7 @@ export default function Index() {
       source={require("../assets/images/movies-bg.png")}
       className="flex-1 justify-center items-center"
     >
-      <GradientComponent>
+      <GradientComponent startY={1}>
         <View className="w-full  flex-1 justify-end items-center px-5 pb-10">
           <Text className="text-white text-2xl font-poppins-bold p-5 rounded-xl ">
             welcome to moviQ

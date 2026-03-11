@@ -19,12 +19,17 @@ const MediaPicture = ({
   vote_average,
   genres,
 }: MediaPictureProps) => {
+  console.log(id);
+  const [imgError, setImgError] = React.useState(false);
+  const placeholder = require("../../assets/images/No-Image-Placeholder.png");
+  const imgURL = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdropPath}`;
   return (
     <>
       <ImageBackground
-        source={{ uri: `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdropPath}` }}
+        source={imgError || !backdropPath ? placeholder:{ uri: imgURL }}
         resizeMode="cover"
-        className="w-full h-[450px] "
+        className="w-full h-[450px] bg-[#303030]"
+        onError={() => setImgError(true)}
       >
         <GradientComponent startY={1.4}>
           <View className="h-full px-5 flex justify-end relative">
@@ -52,12 +57,12 @@ const MediaPicture = ({
       </ImageBackground>
       <View className="gap-2 px-5">
         <View className="flex-row gap-2 items-center">
-          <MaterialCommunityIcons name="star" color="#ffc700" size={18} />
+          <MaterialCommunityIcons name="star" color="#ffc700" size={24} />
           <Text className="text-white text-lg  font-poppins-bold">
             {Number(vote_average).toFixed(1)}
           </Text>
         </View>
-        <Text className="text-gray-color text-xs font-poppins-regular">
+        <Text className="text-white text-base font-poppins-regular">
           {genres.map((genre) => genre.name).join(", ")}
         </Text>
       </View>

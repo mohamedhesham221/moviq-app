@@ -74,4 +74,14 @@ export interface Creator {
   profile_path: string | null;
 }
 
+type Cast = {
+  known_for_department: string;
+  name: string;
+  profile_path: string;
+  character: string;
+}
+export interface MediaCast {
+  id?: number;
+  cast: Cast[];
+}
 export type MediaFilter = "now_playing" | "upcoming" | "popular" | "top_rated" |"airing_today" | "on_the_air"

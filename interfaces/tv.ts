@@ -10,7 +10,7 @@ import type {
 } from "./api";
 
 export interface Tv {
-  backdrop_path: string | null;
+  backdrop_path: string;
   created_by: Creator[];
   episode_run_time: number[];
   first_air_date: string;

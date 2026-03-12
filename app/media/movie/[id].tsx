@@ -17,7 +17,7 @@ export default function MovieDetails() {
 
   if (isLoading) return <Loader />;
   if (isError || !movie) return <ErrorComponent />;
-
+  
   return (
     <ScrollView>
       <View className="pb-10">

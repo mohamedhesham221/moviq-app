@@ -5,7 +5,7 @@ export const ENDPOINTS = {
   SEARCH_MOVIE: `search/movie`,
   SEARCH_TV: `search/tv`,
   GENRES: (category: "movie" | "tv") => `genre/${category}/list`,
-  MOVIE_CAST: (id: number, type: "movie" | "tv") => `${type}/${id}/credits`,
+  CAST: (id: number, type: "movie" | "tv") => `${type}/${id}/credits`,
 };
 export const MOVIE_ENDPOINTS = {
   MOVIES: (path: string) => `movie/${path}`,

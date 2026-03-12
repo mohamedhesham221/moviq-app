@@ -74,7 +74,8 @@ export interface Creator {
   profile_path: string | null;
 }
 
-type Cast = {
+export type Cast = {
+  id: number;
   known_for_department: string;
   name: string;
   profile_path: string;

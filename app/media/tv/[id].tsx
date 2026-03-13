@@ -8,6 +8,7 @@ import ErrorComponent from "@/components/ErrorComponent";
 import MediaOverview from "@/components/media/MediaOverview";
 import MediaCastWrapper from "@/components/media/MediaCastWrapper";
 import { useMediaCast } from "@/hooks/useMediaCast";
+import MediaDetails from "@/components/media/MediaDetails";
 
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
@@ -31,6 +32,7 @@ export default function TvDetails() {
         />
         <MediaOverview overview={tv.overview} />
         <MediaCastWrapper cast={cast}/>
+        
       </View>
     </ScrollView>
   );

@@ -85,4 +85,16 @@ export interface MediaCast {
   id?: number;
   cast: Cast[];
 }
+export type Video = {
+  name: string;
+  type: string;
+  key: string;
+  site: string;
+  size: number;
+  id: string;
+}
+export interface MediaVideos {
+  id?: number;
+  results: Video[]
+}
 export type MediaFilter = "now_playing" | "upcoming" | "popular" | "top_rated" |"airing_today" | "on_the_air"

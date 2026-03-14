@@ -9,13 +9,26 @@ import MediaOverview from "@/components/media/MediaOverview";
 import MediaCastWrapper from "@/components/media/MediaCastWrapper";
 import { useMediaCast } from "@/hooks/useMediaCast";
 import LastEpisode from "@/components/media/LastEpisode";
+import Seasons from "@/components/media/Seasons";
+import WatchButton from "@/components/media/WatchButton";
+import { useVideos } from "@/hooks/useVideos";
+import MediaVideo from "@/components/media/Video";
 
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
   const tvID = Number(id);
   const { tv, isLoading, isError } = useGetTvDetails(tvID);
   const { cast } = useMediaCast({ id: tvID, type: "tv" });
+  const { videos } = useVideos({ id: tvID, type: "tv" });
 
+  const [visible, setVisible] = React.useState(false);
+  const [playing, setPlaying] = React.useState(true);
+
+  const onStateChange = React.useCallback((state: string) => {
+    if (state === "ended") {
+      setPlaying(false);
+    }
+  }, []);
   if (isLoading) return <Loader />;
   if (isError || !tv) return <ErrorComponent />;
 
@@ -34,6 +47,16 @@ export default function TvDetails() {
         {tv.last_episode_to_air && (
           <LastEpisode episode={tv.last_episode_to_air} />
         )}
+        <Seasons seasons={tv.seasons} />
+        <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
+        <MediaVideo
+          videos={videos}
+          onStateChange={onStateChange}
+          playing={playing}
+          visible={visible}
+          setVisible={setVisible}
+          setPlaying={setPlaying}
+        />
       </View>
     </ScrollView>
   );

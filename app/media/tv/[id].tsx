@@ -8,7 +8,7 @@ import ErrorComponent from "@/components/ErrorComponent";
 import MediaOverview from "@/components/media/MediaOverview";
 import MediaCastWrapper from "@/components/media/MediaCastWrapper";
 import { useMediaCast } from "@/hooks/useMediaCast";
-import MediaDetails from "@/components/media/MediaDetails";
+import LastEpisode from "@/components/media/LastEpisode";
 
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
@@ -18,7 +18,6 @@ export default function TvDetails() {
 
   if (isLoading) return <Loader />;
   if (isError || !tv) return <ErrorComponent />;
-
 
   return (
     <ScrollView>
@@ -31,8 +30,10 @@ export default function TvDetails() {
           vote_average={tv.vote_average}
         />
         <MediaOverview overview={tv.overview} />
-        <MediaCastWrapper cast={cast}/>
-        
+        <MediaCastWrapper cast={cast} />
+        {tv.last_episode_to_air && (
+          <LastEpisode episode={tv.last_episode_to_air} />
+        )}
       </View>
     </ScrollView>
   );

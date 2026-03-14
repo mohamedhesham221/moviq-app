@@ -9,13 +9,14 @@ import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Trend } from "@/interfaces/api";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
-import { navigateMovie} from "@/utils/navigate";
+import { navigateMedia } from "@/utils/navigate";
 const TrendingItem = ({
   title,
   id,
   name,
   vote_average,
   backdrop_path,
+  media_type,
 }: Trend) => {
   return (
     <View className="space-y-4 w-[300px] mt-4">
@@ -36,7 +37,11 @@ const TrendingItem = ({
         </ImageBackground>
       </View>
 
-      <TouchableOpacity onPress={() => navigateMovie(id)}>
+      <TouchableOpacity
+        onPress={() =>
+          title ? navigateMedia(id, "movie") : navigateMedia(id, "tv")
+        }
+      >
         <Text className="text-white text-xl font-poppins-bold">
           {title || name}
         </Text>

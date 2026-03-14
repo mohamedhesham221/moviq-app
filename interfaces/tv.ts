@@ -38,7 +38,6 @@ export interface Tv {
   spoken_languages: SpokenLanguage[];
   status: string;
   tagline: string;
-  type: string;
   vote_average: string;
   vote_count: number;
 }

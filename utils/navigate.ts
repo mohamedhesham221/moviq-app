@@ -1,11 +1,7 @@
 import { router } from "expo-router";
-export const navigateMovie = (id: number) =>
+export const navigateMedia = (id: number, mediaType: "movie" | "tv") => {
   router.push({
-    pathname: `/media/movie/[id]`,
-    params: { id: id },
+    pathname: `/media/${mediaType}/[id]`,
+    params: { id: String(id) },
   });
-export const navigateTv = (id: number) =>
-  router.push({
-    pathname: `/media/tv/[id]`,
-    params: { id: id },
-  });
+};

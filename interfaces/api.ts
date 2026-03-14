@@ -10,6 +10,7 @@ export interface Trend {
   id: number;
   vote_average: string;
   backdrop_path: string;
+  media_type: string;
 }
 export interface Genre {
   id: number;

@@ -1,14 +1,20 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import React from "react";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "@/constants/imageURL";
 import GradientComponent from "@/components/GradientComponent";
+import { navigateMedia } from "@/utils/navigate";
 
-const PosterItem = ({ poster, title }: { poster: string; title: string }) => {
+const PosterItem = ({
+  poster,
+  title,
+  id,
+  mediaType
+}: {
+  poster: string;
+  title: string;
+  id: number;
+  mediaType: "movie" | "tv"
+}) => {
   const [imgError, setImgError] = React.useState(false);
   const placeholder = require("../assets/images/No-Image-Placeholder.png");
   const imageUrl = `${IMAGE_BASE_URL}${POSTER_SIZE}${poster}`;
@@ -16,6 +22,7 @@ const PosterItem = ({ poster, title }: { poster: string; title: string }) => {
     <TouchableOpacity
       activeOpacity={0.6}
       style={{ flex: 1, marginHorizontal: 5 }}
+      onPress={() => mediaType === "movie" ? navigateMedia(id, "movie") : navigateMedia(id, "tv")}
     >
       <ImageBackground
         source={imgError || !poster ? placeholder : { uri: imageUrl }}
@@ -27,9 +34,9 @@ const PosterItem = ({ poster, title }: { poster: string; title: string }) => {
       >
         <GradientComponent startY={1.35}>
           <View className="flex-1 justify-end">
-          <Text className="text-white font-poppins-bold text-center mt-1">
-            {title}
-          </Text>
+            <Text className="text-white font-poppins-bold text-center mt-1">
+              {title}
+            </Text>
           </View>
         </GradientComponent>
       </ImageBackground>

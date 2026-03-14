@@ -10,7 +10,7 @@ import { POSTER_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
 import { useGenres } from "@/hooks/useGenres";
 
 import React from "react";
-import { navigateMovie, navigateTv } from "@/utils/navigate";
+import { navigateMedia } from "@/utils/navigate";
 type Media = {
   id: number;
   title?: string;
@@ -51,7 +51,9 @@ const LatestItem = ({ item }: LatestProps) => {
         {/**Title */}
         <TouchableOpacity
           onPress={() =>
-            item.title ? navigateMovie(item.id) : navigateTv(item.id)
+            item.title
+              ? navigateMedia(item.id, "movie")
+              : navigateMedia(item.id, "tv")
           }
         >
           <Text className="text-white text-xl font-poppins-bold">

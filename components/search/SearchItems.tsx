@@ -37,7 +37,7 @@ const SearchItems = ({ searchQuery }: SearchItemsProps) => {
     <FlatList
       data={results}
       keyExtractor={(item) => item.media_type + item.id}
-      renderItem={({ item }) => <PosterItem poster={item.poster_path} title={item.title || item.name} />}
+      renderItem={({ item }) => <PosterItem poster={item.poster_path} title={item.title || item.name} id={item.id} mediaType={item.media_type}/>}
       numColumns={2}
       columnWrapperStyle={{
         justifyContent: "center",

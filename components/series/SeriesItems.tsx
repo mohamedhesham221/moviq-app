@@ -23,9 +23,9 @@ const SeriesItems = ({ value }: { value: string }) => {
   return (
     <FlatList
       data={series}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
-        <PosterItem poster={item.poster_path} title={item.name} />
+        <PosterItem poster={item.poster_path} title={item.name} id={item.id} mediaType={"tv"} />
       )}
       numColumns={2}
       columnWrapperStyle={{

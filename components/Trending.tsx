@@ -34,6 +34,7 @@ const Trending = () => {
             name={item.name}
             backdrop_path={item.backdrop_path}
             vote_average={item.vote_average}
+            media_type={item.media_type}
           />
         )}
         ListEmptyComponent={() =>

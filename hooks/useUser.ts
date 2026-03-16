@@ -7,12 +7,14 @@ export function useUser() {
     queryFn: getAccount,
     retry: false,
   });
+  const userId = data?.$id;
   const email = data?.email;
   const emailVerification = data?.emailVerification;
   const name = data?.name;
   const phone = data?.phone;
   const phoneVerification = data?.phoneVerification;
   return {
+    userId,
     email,
     emailVerification,
     name,

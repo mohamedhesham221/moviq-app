@@ -12,6 +12,7 @@ import { useGenres } from "@/hooks/useGenres";
 import React from "react";
 import { navigateMedia } from "@/utils/navigate";
 import { useAddBookmark } from "@/hooks/useAddBookmark";
+import BookmarkButton from "./BookmarkButton";
 type Media = {
   id: number;
   title?: string;
@@ -43,28 +44,7 @@ const LatestItem = ({ item }: LatestProps) => {
         resizeMode="cover"
       >
         {/**Bookmark */}
-        <Pressable
-          onPress={() => {
-            add.mutate({
-              mediaId: item.id,
-              mediaType: item.title ? "movie" : "tv",
-              mediaPoster: item.poster_path,
-              mediaName: item.name || item.title,
-            });
-          }}
-          style={({ pressed }) => ({
-            opacity: pressed ? 0.5 : 1,
-          })}
-          android_ripple={{ color: "rgba(255,255,255,0.2)" }}
-          hitSlop={10}
-        >
-          <MaterialCommunityIcons
-            name="bookmark"
-            size={24}
-            color="white"
-            className="absolute top-2 right-4"
-          />
-        </Pressable>
+        <BookmarkButton  id={item.id} media_type={item.media_type} poster_path={item.poster_path} name={item.name} title={item.title}/>
       </ImageBackground>
       {/**Details */}
       <View className="flex-1">

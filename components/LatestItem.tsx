@@ -11,12 +11,14 @@ import { useGenres } from "@/hooks/useGenres";
 
 import React from "react";
 import { navigateMedia } from "@/utils/navigate";
+import { useAddBookmark } from "@/hooks/useAddBookmark";
 type Media = {
   id: number;
   title?: string;
   name?: string;
-  poster_path: string | null;
+  poster_path: string;
   overview: string;
+  media_type: "movie" | "tv";
   vote_average: string;
   genre_ids?: number[];
 };
@@ -25,6 +27,10 @@ type LatestProps = {
 };
 const LatestItem = ({ item }: LatestProps) => {
   const { genres } = useGenres("movie");
+  const { add } = useAddBookmark();
+  const posterPath = `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}`;
+  const placeholder = require("../assets/images/No-Image-Placeholder.png");
+
   const itemGenres = genres.filter((genre) =>
     item.genre_ids?.includes(genre.id),
   );
@@ -32,12 +38,26 @@ const LatestItem = ({ item }: LatestProps) => {
     <View className="w-full h-72 mt-8 flex-row gap-4 items-stretch">
       {/**Poster */}
       <ImageBackground
-        source={{ uri: `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}` }}
+        source={item.poster_path ? { uri: posterPath } : placeholder}
         className="flex-1 rounded-lg relative overflow-hidden"
         resizeMode="cover"
       >
         {/**Bookmark */}
-        <Pressable onPress={() => console.log(item.id, "Bookmarked")}>
+        <Pressable
+          onPress={() => {
+            add.mutate({
+              mediaId: item.id,
+              mediaType: item.title ? "movie" : "tv",
+              mediaPoster: item.poster_path,
+              mediaName: item.name || item.title,
+            });
+          }}
+          style={({ pressed }) => ({
+            opacity: pressed ? 0.5 : 1,
+          })}
+          android_ripple={{ color: "rgba(255,255,255,0.2)" }}
+          hitSlop={10}
+        >
           <MaterialCommunityIcons
             name="bookmark"
             size={24}

@@ -41,6 +41,8 @@ export default function TvDetails() {
           title={tv.name}
           genres={tv.genres}
           vote_average={tv.vote_average}
+          posterPath={tv.poster_path}
+          media_type="tv"
         />
         <MediaOverview overview={tv.overview} />
         <MediaCastWrapper cast={cast} />

@@ -6,10 +6,17 @@ import { Bookmark } from "@/interfaces/bookmarks";
 const DATABASE_ID = "69b60f26000bf913a631";
 const BOOKMARK_COLLECTION_ID = "bookmarks";
 
-export const addBookmark = async (
-  mediaId: number,
-  mediaType: "movie" | "tv",
-  mediaPoster: string,
+export const addBookmark = async ({
+  mediaId,
+  mediaType,
+  mediaPoster,
+  mediaName
+}: {
+  mediaId: number;
+  mediaType: "movie" | "tv";
+  mediaPoster: string;
+  mediaName?: string
+}
 ) => {
   try {
     const user = await getAccount();
@@ -24,6 +31,7 @@ export const addBookmark = async (
         mediaId,
         mediaType,
         mediaPoster,
+        mediaName
       },
     );
   } catch (error) {

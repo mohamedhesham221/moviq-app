@@ -12,7 +12,8 @@ type Media = {
   id: number;
   title?: string;
   name?: string;
-  poster_path: string | null;
+  poster_path: string;
+  media_type: "movie" | "tv";
   overview: string;
   vote_average: string;
   genre_ids?: number[];

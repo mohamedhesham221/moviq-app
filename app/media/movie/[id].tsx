@@ -38,6 +38,8 @@ export default function MovieDetails() {
           title={movie.title}
           genres={movie.genres}
           vote_average={movie.vote_average}
+          posterPath={movie.poster_path}
+          media_type="movie"
         />
         <MediaOverview overview={movie.overview} />
         <MediaCastWrapper cast={cast} />

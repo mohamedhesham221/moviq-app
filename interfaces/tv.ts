@@ -40,4 +40,5 @@ export interface Tv {
   tagline: string;
   vote_average: string;
   vote_count: number;
+  media_type:"tv"
 }

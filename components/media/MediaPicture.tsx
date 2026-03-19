@@ -5,28 +5,37 @@ import GradientComponent from "../GradientComponent";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router } from "expo-router";
 import { Genre } from "@/interfaces/api";
+import { useAddBookmark } from "@/hooks/useAddBookmark";
+
 type MediaPictureProps = {
   backdropPath: string;
-  title: string;
+  posterPath: string;
+  title?: string;
+  name?:string;
   id: number;
   vote_average: string;
   genres: Genre[];
+  media_type: "movie" | "tv"
 };
 const MediaPicture = ({
   backdropPath,
+  posterPath,
   title,
   id,
   vote_average,
   genres,
+  media_type
 }: MediaPictureProps) => {
   console.log(id);
   const [imgError, setImgError] = React.useState(false);
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");
   const imgURL = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdropPath}`;
+  const { add } = useAddBookmark();
+
   return (
     <>
       <ImageBackground
-        source={imgError || !backdropPath ? placeholder:{ uri: imgURL }}
+        source={imgError || !backdropPath ? placeholder : { uri: imgURL }}
         resizeMode="cover"
         className="w-full h-[450px] bg-[#303030]"
         onError={() => setImgError(true)}
@@ -44,7 +53,21 @@ const MediaPicture = ({
                   size={40}
                 />
               </Pressable>
-              <Pressable>
+              <Pressable
+                onPress={() => {
+                  add.mutate({
+                    mediaId: id,
+                    mediaType: media_type,
+                    mediaPoster: posterPath,
+                    mediaName: title,
+                  });
+                }}
+                style={({ pressed }) => ({
+                  opacity: pressed ? 0.5 : 1,
+                })}
+                android_ripple={{ color: "rgba(255,255,255,0.2)" }}
+                hitSlop={10}
+              >
                 <MaterialCommunityIcons
                   name="bookmark-outline"
                   color="white"

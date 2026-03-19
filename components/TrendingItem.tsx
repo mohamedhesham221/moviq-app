@@ -10,6 +10,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Trend } from "@/interfaces/api";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
 import { navigateMedia } from "@/utils/navigate";
+import { useAddBookmark } from "@/hooks/useAddBookmark";
 const TrendingItem = ({
   title,
   id,
@@ -17,16 +18,34 @@ const TrendingItem = ({
   vote_average,
   backdrop_path,
   media_type,
+  poster_path,
 }: Trend) => {
+  const { add } = useAddBookmark();
+  const placeholder = require("../assets/images/No-Image-Placeholder.png");
+  const backdropPath = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdrop_path}`;
   return (
     <View className="space-y-4 w-[300px] mt-4">
       <View className="w-full h-[200px] rounded-xl overflow-hidden mb-4 relative">
         <ImageBackground
-          source={{ uri: `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdrop_path}` }}
+          source={backdrop_path ? { uri: backdropPath } : placeholder}
           className="w-full h-full"
-          resizeMode="cover"
+          resizeMode={backdrop_path ? "cover" : "contain"}
         >
-          <Pressable onPress={() => console.log(id, "Bookmarked")}>
+          <Pressable
+            onPress={() => {
+              add.mutate({
+                mediaId: id,
+                mediaType: media_type,
+                mediaPoster: poster_path,
+                mediaName: name || title,
+              });
+            }}
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+            })}
+            android_ripple={{ color: "rgba(255,255,255,0.2)" }}
+            hitSlop={10}
+          >
             <MaterialCommunityIcons
               name="bookmark"
               size={24}

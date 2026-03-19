@@ -10,7 +10,8 @@ export interface Trend {
   id: number;
   vote_average: string;
   backdrop_path: string;
-  media_type: string;
+  media_type: "tv" | "movie";
+  poster_path: string;
 }
 export interface Genre {
   id: number;

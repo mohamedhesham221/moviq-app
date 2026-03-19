@@ -29,4 +29,5 @@ export interface Movie {
   status: string;
   tagline: string;
   vote_count: number;
+  media_type:"movie"
 }

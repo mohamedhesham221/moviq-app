@@ -24,15 +24,11 @@ const BookmarkButton = ({
       onPress={() => {
         add.mutate({
           mediaId: id,
-          mediaType: media_type,
+          mediaType: name ? "tv" : "movie",
           mediaPoster: poster_path,
           mediaName: name || title,
         });
       }}
-      style={({ pressed }) => ({
-        opacity: pressed ? 0.5 : 1,
-      })}
-      android_ripple={{ color: "rgba(255,255,255,0.2)" }}
       hitSlop={10}
     >
       <MaterialCommunityIcons

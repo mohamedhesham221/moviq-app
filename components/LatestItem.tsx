@@ -1,17 +1,10 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Pressable,
-  ImageBackground,
-} from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { POSTER_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
 import { useGenres } from "@/hooks/useGenres";
 
 import React from "react";
 import { navigateMedia } from "@/utils/navigate";
-import { useAddBookmark } from "@/hooks/useAddBookmark";
 import BookmarkButton from "./BookmarkButton";
 type Media = {
   id: number;
@@ -28,7 +21,6 @@ type LatestProps = {
 };
 const LatestItem = ({ item }: LatestProps) => {
   const { genres } = useGenres("movie");
-  const { add } = useAddBookmark();
   const posterPath = `${IMAGE_BASE_URL}${POSTER_SIZE}${item.poster_path}`;
   const placeholder = require("../assets/images/No-Image-Placeholder.png");
 
@@ -44,7 +36,13 @@ const LatestItem = ({ item }: LatestProps) => {
         resizeMode="cover"
       >
         {/**Bookmark */}
-        <BookmarkButton  id={item.id} media_type={item.media_type} poster_path={item.poster_path} name={item.name} title={item.title}/>
+        <BookmarkButton
+          id={item.id}
+          media_type={item.media_type}
+          poster_path={item.poster_path}
+          name={item.name}
+          title={item.title}
+        />
       </ImageBackground>
       {/**Details */}
       <View className="flex-1">

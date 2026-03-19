@@ -1,9 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteBookmark } from "@/services/database";
 import { Bookmark } from "@/interfaces/bookmarks";
+import { useUser } from "./useUser";
 
-export function useRemoveBookmark(userId: string) {
+export function useRemoveBookmark() {
   const queryClient = useQueryClient();
+  const {userId} = useUser()
   const remove = useMutation({
     mutationFn: deleteBookmark,
     onSuccess: (_, documentId) => {

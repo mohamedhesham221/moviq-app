@@ -1,10 +1,10 @@
 import AppButton from "@/components/AppButton";
 import AppLink from "@/components/AppLink";
+import Input from "@/components/Input";
 import AuthText from "@/components/auth/AuthText";
 import ErrorText from "@/components/auth/ErrorText";
 import LoadingText from "@/components/auth/LoadingText";
 import SuccessText from "@/components/auth/SuccessText";
-import Input from "@/components/Input";
 import { LoginProps, loginSchema } from "@/constants/authSchema";
 import { useLogin } from "@/hooks/useLogin";
 import { yupResolver } from "@hookform/resolvers/yup";

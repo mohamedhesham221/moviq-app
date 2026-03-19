@@ -6,7 +6,7 @@ import { useRemoveBookmark } from "@/hooks/useRemoveBookmark";
 import type { Bookmark } from "@/interfaces/bookmarks";
 
 const WatchlistItem = ({ item }: { item: Bookmark }) => {
-  const { remove } = useRemoveBookmark(item.userId);
+  const { remove } = useRemoveBookmark();
 
   return (
     <View className="flex-1 relative">

@@ -7,7 +7,6 @@ import type { Bookmark } from "@/interfaces/bookmarks";
 
 const WatchlistItem = ({ item }: { item: Bookmark }) => {
   const { remove } = useRemoveBookmark(item.userId);
-console.log(item);
 
   return (
     <View className="flex-1 relative">
@@ -21,9 +20,7 @@ console.log(item);
       {/* Delete Button */}
       <Pressable
         onPress={() => {
-          console.log("Deleted item", item.$id);
-          
-          remove.mutate(item.$id)
+          remove.mutate(item.$id);
         }}
         style={({ pressed }) => ({
           opacity: pressed ? 0.5 : 1,

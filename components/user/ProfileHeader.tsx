@@ -3,7 +3,7 @@ import React from "react";
 import { useUser } from "@/hooks/useUser";
 
 const ProfileHeader = () => {
-  const { name, email, error, isLoading } = useUser();
+  const { name, email } = useUser();
 
   const fullName =
     name

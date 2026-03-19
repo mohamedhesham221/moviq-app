@@ -5,8 +5,6 @@ type MediaOverviewProps = {
   overview: string;
 };
 const MediaOverview = ({ overview }: MediaOverviewProps) => {
-  console.log(overview);
-
   return (
     <View className="w-full px-5 py-10">
       <Text className="text-gray-color font-poppins-regular text-base">

@@ -1,6 +1,6 @@
 import React from "react";
 import { getAccount } from "@/services/userAuth";
-import { Redirect, router } from "expo-router";
+import { router } from "expo-router";
 import { APP_ROUTES } from "@/constants/appRoutes";
 
 type ProtectedProps = {

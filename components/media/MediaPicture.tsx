@@ -26,7 +26,6 @@ const MediaPicture = ({
   genres,
   media_type
 }: MediaPictureProps) => {
-  console.log(id);
   const [imgError, setImgError] = React.useState(false);
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");
   const imgURL = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${backdropPath}`;

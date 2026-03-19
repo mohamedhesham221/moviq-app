@@ -7,7 +7,7 @@ export function useGetTvDetails(id: number) {
         queryKey: ['tv', id],
         queryFn: () => fetcher<Tv>(SERIES_ENDPOINTS.DETAILS(id)),
         enabled: !!id,
-         staleTime: 1000 * 60 * 5
+        staleTime: 1000 * 60 * 5
     })
     return {tv:data,isError, isLoading}
 }

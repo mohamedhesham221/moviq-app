@@ -13,7 +13,7 @@ export function useUserSession() {
       if (res) {
         router.replace(APP_ROUTES.HOME);
       } else {
-        console.log("No active session found.");
+        router.replace("/")
       }
     } catch (error) {
       console.log("Error checking session:", error);

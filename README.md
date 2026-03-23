@@ -54,7 +54,7 @@
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |---|---|
@@ -70,7 +70,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ EXPO_PUBLIC_API_KEY=your_tmdb_key
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
  moviQ/

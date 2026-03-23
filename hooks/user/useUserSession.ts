@@ -1,23 +1,20 @@
 import { router } from "expo-router";
 import { APP_ROUTES } from "@/constants/appRoutes";
 import { getAccount } from "@/services/userAuth";
-
+import React from "react";
 export function useUserSession() {
+  const [isUserExist, setIsUserExist] = React.useState(false)
   const toSignUp = () => {
-    router.push(APP_ROUTES.REGISTER);
+    router.push(APP_ROUTES.LOGIN);
   };
-
-  async function activeSession(): Promise<void> {
+  async function activeSession() {
     try {
-      const res = await getAccount();
-      if (res) {
-        router.replace(APP_ROUTES.HOME);
-      } else {
-        router.replace("/")
-      }
-    } catch (error) {
-      console.log("Error checking session:", error);
+      await getAccount();
+      return setIsUserExist(true);
+    } catch {
+      return setIsUserExist(false);
     }
   }
-  return { toSignUp, activeSession };
-};
+  activeSession();
+  return { toSignUp, isUserExist };
+}

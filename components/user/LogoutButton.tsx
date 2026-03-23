@@ -11,7 +11,7 @@ const LogoutButton = () => {
     try {
       const response = await logout();
       if (response) {
-        router.replace(APP_ROUTES.LOGIN);
+        router.replace(APP_ROUTES.WELCOME);
       }
       console.log("Logout successful:", response);
     } catch (error) {

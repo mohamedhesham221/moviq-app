@@ -1,4 +1,3 @@
-import { useUser } from "@/hooks/user/useUser";
 import { useWatchlist } from "@/hooks/useWatchlist";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
@@ -9,8 +8,7 @@ import SectionHeader from "../SectionHeader";
 import WatchlistItem from "./WatchlistItem";
 
 const PersonalWatchlist = () => {
-  const { userId } = useUser();
-  const { bookmarks, isLoading, isError } = useWatchlist(userId);
+  const { bookmarks, isLoading, isError } = useWatchlist();
   if (isLoading) return <Loader />;
   if (isError) return <ErrorComponent />;
   //if bookmark empty

@@ -9,11 +9,8 @@ export default function Index() {
 
   // check if user still in login session if not redirect user to welcome screen
   React.useEffect(() => {
-    if (isUserExist) {
-      router.replace(APP_ROUTES.HOME)
-    } else {
-      router.replace(APP_ROUTES.WELCOME)
-    }
+    if (isUserExist === undefined) return
+    router.replace(isUserExist ?  APP_ROUTES.HOME: APP_ROUTES.WELCOME);
   }, [isUserExist]);
   return <Loader />;
 }

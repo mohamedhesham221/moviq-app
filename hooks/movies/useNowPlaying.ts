@@ -10,5 +10,5 @@ export const useNowPlaying = () => {
     queryFn: () => fetcher<TMDBResponse<Movie>>(MOVIE_ENDPOINTS.MOVIES('now_playing')),
   });
   const movies = data?.results.slice(0, 5);
-  return { movies };
+  return { movies, isLoading };
 };

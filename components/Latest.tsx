@@ -5,9 +5,9 @@ import { useNowPlaying } from "@/hooks/movies/useNowPlaying";
 import { useOnTheAir } from "@/hooks/series/useOnTheAir";
 import LatestItem from "./LatestItem";
 import Trending from "./Trending";
-import Loader from "./Loader";
 import AppLink from "./AppLink";
 import { Href } from "expo-router";
+import LatestSkeleton from "./skeletons/LatestSkeleton";
 type Media = {
   id: number;
   title?: string;
@@ -41,15 +41,41 @@ const Latest = () => {
       sectionHref: "/series",
     },
   ];
-  const isEmpty = DATA.every((section) => section.data.length === 0);
-  if (isEmpty) {
-    return <Loader />;
-  }
+  const SKELETON_SECTIONS: typeof DATA = [
+    {
+      title: "Now Playing",
+      data: Array.from(
+        { length: 4 },
+        (_, i) => ({ id: `skeleton-movies-${i}`, isSkeleton: true }) as any,
+      ),
+      footerTitle: "see more",
+      sectionHref: "/movies",
+    },
+    {
+      title: "On The Air",
+      data: Array.from(
+        { length: 4 },
+        (_, i) => ({ id: `skeleton-series-${i}`, isSkeleton: true }) as any,
+      ),
+      footerTitle: "see more",
+      sectionHref: "/series",
+    },
+  ];
+  const isLoading = !movies || !series;
+
+  const sections = isLoading ? SKELETON_SECTIONS : DATA;
+
   return (
     <SectionList
-      sections={DATA}
+      sections={sections}
       keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => <LatestItem item={item} />}
+      renderItem={({ item }) =>
+        (item as any).isSkeleton ? (
+          <LatestSkeleton />
+        ) : (
+          <LatestItem item={item} />
+        )
+      }
       renderSectionHeader={({ section: { title } }) => (
         <View className="mt-5">
           <SectionHeader text={title} showBackButton={false} />

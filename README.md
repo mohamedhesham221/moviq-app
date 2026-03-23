@@ -1,6 +1,6 @@
 # moviQ
 
-**moviQ** is a fullstack mobile app for discovering trending movies and TV series — built with React Native, Expo, NativeWind, and TypeScript.
+**moviQ** is a fullstack mobile app for discovering trending movies and TV series  built with React Native, Expo, NativeWind, and TypeScript.
 
 ---
 

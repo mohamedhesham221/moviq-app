@@ -13,20 +13,10 @@ import { Controller, useForm } from "react-hook-form";
 import { Text, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-{
-  /**Login Screen
-   * use KeyboardAwareScrollView to handle keyboard avoiding view
-   * uses react-hook-form and yup for form handling and validation
-   * Fields: email, password
-   * Button: Login
-   * Link: if you don't have an account? Sign Up
-   * Displays error messages for validation and registration failures
-   * Displays success message on successful registration
-   * Displays loading indicator during registration process
-   */
-}
+
 const Login = () => {
   const { errorMessage, isLoading, isSuccess, handleLogin } = useLogin();
+  //Using react-hook-form, yup for handling login
   const {
     control,
     handleSubmit,

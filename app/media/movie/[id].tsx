@@ -20,6 +20,7 @@ export default function MovieDetails() {
   const { videos } = useVideos({ id: movieID, type: "movie" });
   const [visible, setVisible] = React.useState(false);
   const [playing, setPlaying] = React.useState(true);
+  //Stop playing video when video modal closed
   const onStateChange = React.useCallback((state: string) => {
     if (state === "ended") {
       setPlaying(false);

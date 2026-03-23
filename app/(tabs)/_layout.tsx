@@ -1,10 +1,10 @@
+//Tabs Layout
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router, Tabs } from "expo-router";
 import React from "react";
 import { Text } from "react-native";
 import { getAccount } from "@/services/userAuth";
-import Toast from "react-native-toast-message";
-import { ToastConfigParams } from "react-native-toast-message";
+import Toast, { ToastConfigParams } from "react-native-toast-message";
 import CustomToast from "@/components/CustomToast";
 
 interface StyleScheme {
@@ -19,6 +19,7 @@ const styles: StyleScheme = {
   inactiveTint: "#FFFFFF",
   size: 28,
 };
+//implement custom toasts for better UI & UX 
 const toastConfig = {
   customSuccess: ({ text1 }: ToastConfigParams<any>) => (
     <CustomToast text={text1 ?? ""} color="#22c55e" iconName="check-circle" />

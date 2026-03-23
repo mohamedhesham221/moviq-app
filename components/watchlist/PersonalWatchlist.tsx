@@ -13,6 +13,7 @@ const PersonalWatchlist = () => {
   const { bookmarks, isLoading, isError } = useWatchlist(userId);
   if (isLoading) return <Loader />;
   if (isError) return <ErrorComponent />;
+  //if bookmark empty
   if (bookmarks.length === 0)
     return (
       <>

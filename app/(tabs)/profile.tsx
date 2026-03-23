@@ -1,3 +1,4 @@
+//Profile Tab
 import React from "react";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import PersonalInfo from "@/components/user/PersonalInfo";

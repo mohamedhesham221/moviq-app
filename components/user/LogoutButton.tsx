@@ -6,6 +6,7 @@ import { router } from "expo-router";
 import { APP_ROUTES } from "@/constants/appRoutes";
 
 const LogoutButton = () => {
+  //redirect to login page if user logout
   const handleLogout = async () => {
     try {
       const response = await logout();

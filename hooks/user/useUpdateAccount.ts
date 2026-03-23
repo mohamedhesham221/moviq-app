@@ -2,9 +2,11 @@ import { useMutation } from "@tanstack/react-query";
 import { updateEmail, updateName, updatePassword } from "@/services/userAuth";
 import { Alert } from "react-native";
 export function useUpdateAccount(currentPassword: string) {
+  //update name
   const updateNameMutation = useMutation({
     mutationFn: (name: string) => updateName(name),
   });
+  //update email
   const updateEmailMutation = useMutation({
     mutationFn: ({
       email,
@@ -14,6 +16,7 @@ export function useUpdateAccount(currentPassword: string) {
       password: string;
     }) => updateEmail(email, password),
   });
+  //update password
   const updatePasswordMutation = useMutation({
     mutationFn: ({
       password,
@@ -23,7 +26,7 @@ export function useUpdateAccount(currentPassword: string) {
       oldPassword: string;
     }) => updatePassword(password, oldPassword),
   });
-
+//
   const handleNameSubmit = (
     name: string,
     setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,

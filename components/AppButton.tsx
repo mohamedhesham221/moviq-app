@@ -2,8 +2,6 @@ import { TouchableOpacity, Text } from "react-native";
 import React from "react";
 import type { AppButtonProps } from "@/types/button.types";
 const AppButton = ({ text, className, onPress, disabled }: AppButtonProps) => {
-
-
   return (
     <TouchableOpacity
       className={`w-full bg-highlight-color px-5 py-3 ${className || ""}`}

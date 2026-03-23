@@ -1,4 +1,4 @@
-import type { MediaFilter } from "@/types/api.types";
+import type { MediaFilter } from "@/types/filter.types";
 import React from "react";
 import Filter from "../Filter";
 import SectionHeader from "../SectionHeader";

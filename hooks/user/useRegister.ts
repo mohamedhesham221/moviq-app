@@ -7,7 +7,7 @@ export function useRegister() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isSuccess, setIsSuccess] = React.useState<boolean>(false);
 
-
+  {/**redirect to home screen if login success after 1.5s to ensure response in appwrite success  */}
   const handleRegister = async (data: RegisterProps, reset: () => void) => {
     setIsLoading(true);
     setErrorMessage("");

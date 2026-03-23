@@ -8,6 +8,7 @@ export function useLogin() {
   const [isSuccess, setIsSuccess] = React.useState<boolean>(false);
 
 
+  {/**redirect to home screen if login success after 1.5s to ensure response in appwrite success  */}
   const handleLogin = async (data: LoginProps, reset: () => void) => {
     setIsLoading(true);
     setErrorMessage("");

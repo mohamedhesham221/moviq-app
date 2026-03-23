@@ -16,6 +16,7 @@ const ModalForm = ({
   const [currentPassword, setCurrentPassword] = React.useState<string>("");
   const { handleNameSubmit, handleEmailSubmit, handlePasswordSubmit } =
     useUpdateAccount(currentPassword);
+    //change modal form depend on type
   const handleSubmit = () => {
     if (currentType === "name") {
       handleNameSubmit(name, setModalVisible);
@@ -27,6 +28,7 @@ const ModalForm = ({
   };
 
   return (
+    //Modal
     <Modal
       animationType="slide"
       transparent={true}
@@ -37,7 +39,9 @@ const ModalForm = ({
     >
       <View className="w-full flex-1 justify-center items-center bg-black/50">
         <View className="m-5 bg-field-background rounded-2xl px-5 py-2 items-center shadow-md">
+          {/**Name form */}
           {currentType === "name" && <NameForm name={name} setName={setName} />}
+          {/**Email form */}
           {currentType === "email" && (
             <EmailForm
               email={email}
@@ -46,6 +50,7 @@ const ModalForm = ({
               setCurrentPassword={setCurrentPassword}
             />
           )}
+          {/**Password form */}
           {currentType === "password" && (
             <PasswordForm
               password={password}

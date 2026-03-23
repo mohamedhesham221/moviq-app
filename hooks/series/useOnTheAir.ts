@@ -9,6 +9,7 @@ export const useOnTheAir = () => {
     queryFn: () =>
       fetcher<TMDBResponse<Tv>>(SERIES_ENDPOINTS.SERIES("on_the_air")),
   });
+  //render some elements to backend have not pagination
   const series = data?.results.slice(0, 5);
   return { series };
 };

@@ -1,8 +1,9 @@
+// Auth Layout
+
 import { StatusBar } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import BackButton from "@/components/BackButton";
-
 export default function AuthLayout() {
   return (
     <>

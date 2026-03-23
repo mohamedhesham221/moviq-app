@@ -17,11 +17,11 @@ const fetchSearchItems = async (q: string): Promise<SearchResults[]> => {
     `${ENDPOINTS.SEARCH_MOVIE}?query=${q}`,
     `${ENDPOINTS.SEARCH_TV}?query=${q}`,
   ];
-
+// fetch movies and tv in parallel
   const [movie, tv] = await Promise.all(
     urls.map((s) => fetcher<TMDBResponse<SearchResults>>(s)),
   );
-
+// normalize, merge results with media_type in one list UI
   return [
     ...movie.results.map((m) => ({ ...m, media_type: "movie" as const })),
     ...tv.results.map((t) => ({ ...t, media_type: "tv" as const })),

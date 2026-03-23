@@ -10,6 +10,7 @@ export function useRemoveBookmark() {
   const remove = useMutation({
     mutationFn: deleteBookmark,
     onSuccess: (_, documentId) => {
+      //Optimistic update for better performance
       queryClient.setQueryData(["bookmarks", userId], (old: Bookmark[]) => {
         const newList = old?.filter((b) => b.$id !== documentId) ?? [];
         return [...newList];

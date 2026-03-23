@@ -1,5 +1,5 @@
+//Search Tab
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-
 import React from "react";
 import Search from "@/components/search/Search";
 

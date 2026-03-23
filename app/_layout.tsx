@@ -1,3 +1,4 @@
+//Root Layout
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import {
@@ -11,6 +12,7 @@ import { useEffect } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import "./globals.css";
 
+//stop splash screen before fonts loaded 
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
@@ -21,6 +23,7 @@ export default function RootLayout() {
     Poppins_700Bold,
   });
 
+  //hide splash screen when font loaded
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();

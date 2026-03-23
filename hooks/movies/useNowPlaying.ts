@@ -10,6 +10,7 @@ export const useNowPlaying = () => {
     queryFn: () =>
       fetcher<TMDBResponse<Movie>>(MOVIE_ENDPOINTS.MOVIES("now_playing")),
   });
+  //render some elements to backend have not pagination
   const movies = data?.results.slice(0, 5);
   return { movies, isLoading };
 };

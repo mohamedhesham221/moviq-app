@@ -1,3 +1,4 @@
+//Home Tab
 import { View } from "react-native";
 import React from "react";
 import Latest from "@/components/Latest";

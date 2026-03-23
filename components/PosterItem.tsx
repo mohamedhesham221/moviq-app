@@ -3,18 +3,8 @@ import React from "react";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "@/constants/imageURL";
 import GradientComponent from "@/components/GradientComponent";
 import { navigateMedia } from "@/utils/navigate";
-
-const PosterItem = ({
-  poster,
-  title,
-  id,
-  mediaType
-}: {
-  poster: string;
-  title: string;
-  id: number;
-  mediaType: "movie" | "tv"
-}) => {
+import type { PosterProps } from "@/types/poster.types";
+const PosterItem = ({ poster, title, id, mediaType }: PosterProps) => {
   const [imgError, setImgError] = React.useState(false);
   const placeholder = require("../assets/images/No-Image-Placeholder.png");
   const imageUrl = `${IMAGE_BASE_URL}${POSTER_SIZE}${poster}`;
@@ -22,7 +12,11 @@ const PosterItem = ({
     <TouchableOpacity
       activeOpacity={0.6}
       style={{ flex: 1, marginHorizontal: 5 }}
-      onPress={() => mediaType === "movie" ? navigateMedia(id, "movie") : navigateMedia(id, "tv")}
+      onPress={() =>
+        mediaType === "movie"
+          ? navigateMedia(id, "movie")
+          : navigateMedia(id, "tv")
+      }
     >
       <ImageBackground
         source={imgError || !poster ? placeholder : { uri: imageUrl }}

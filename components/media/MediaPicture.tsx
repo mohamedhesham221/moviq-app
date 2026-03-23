@@ -1,22 +1,11 @@
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
-import { useAddBookmark } from "@/hooks/bookamrk/useAddBookmark";
-import { Genre } from "@/interfaces/api";
+import { useAddBookmark } from "@/hooks/bookmark/useAddBookmark";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router } from "expo-router";
 import React from "react";
 import { ImageBackground, Pressable, Text, View } from "react-native";
 import GradientComponent from "../GradientComponent";
-
-type MediaPictureProps = {
-  backdropPath: string;
-  posterPath: string;
-  title?: string;
-  name?: string;
-  id: number;
-  vote_average: string;
-  genres: Genre[];
-  media_type: "movie" | "tv";
-};
+import { MediaPictureProps } from "@/types/media.types";
 const MediaPicture = ({
   backdropPath,
   posterPath,

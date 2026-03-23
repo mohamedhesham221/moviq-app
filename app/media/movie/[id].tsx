@@ -1,17 +1,17 @@
-import { View, ScrollView } from "react-native";
-import React from "react";
-import { useLocalSearchParams } from "expo-router";
-import { useGetMovieDetails } from "@/hooks/movies/useGetMovieDetails";
-import Loader from "@/components/Loader";
-import MediaPicture from "@/components/media/MediaPicture";
 import ErrorComponent from "@/components/ErrorComponent";
-import MediaOverview from "@/components/media/MediaOverview";
+import Loader from "@/components/Loader";
 import MediaCastWrapper from "@/components/media/MediaCastWrapper";
-import { useMediaCast } from "@/hooks/useMediaCast";
 import MediaDetails from "@/components/media/MediaDetails";
-import { useVideos } from "@/hooks/useVideos";
+import MediaOverview from "@/components/media/MediaOverview";
+import MediaPicture from "@/components/media/MediaPicture";
 import MediaVideo from "@/components/media/Video";
 import WatchButton from "@/components/media/WatchButton";
+import { useGetMovieDetails } from "@/hooks/movies/useGetMovieDetails";
+import { useMediaCast } from "@/hooks/useMediaCast";
+import { useVideos } from "@/hooks/useVideos";
+import { useLocalSearchParams } from "expo-router";
+import React from "react";
+import { ScrollView, View } from "react-native";
 export default function MovieDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const movieID = Number(id);

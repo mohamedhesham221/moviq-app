@@ -1,5 +1,5 @@
-import { Bookmark } from "@/interfaces/bookmarks";
 import { deleteBookmark } from "@/services/database";
+import { Bookmark } from "@/types/bookmarks.types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Toast from "react-native-toast-message";
 import { useUser } from "../user/useUser";

@@ -1,15 +1,8 @@
-import { useAddBookmark } from "@/hooks/bookamrk/useAddBookmark";
+import { useAddBookmark } from "@/hooks/bookmark/useAddBookmark";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
 import { Pressable } from "react-native";
-type BookmarkButtonProps = {
-  id: number;
-  media_type: "tv" | "movie";
-  poster_path: string;
-  name?: string;
-  title?: string;
-};
-
+import type { BookmarkButtonProps } from "@/types/button.types";
 const BookmarkButton = ({
   id,
   poster_path,

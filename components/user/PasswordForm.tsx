@@ -1,13 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import Input from "../Input";
-
-type PasswordFormProps = {
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  currentPassword: string;
-  setCurrentPassword: React.Dispatch<React.SetStateAction<string>>;
-};
+import type { PasswordFormProps } from "@/types/user.types";
 const PasswordForm = ({
   password,
   setPassword,

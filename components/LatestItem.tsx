@@ -6,16 +6,7 @@ import { useGenres } from "@/hooks/useGenres";
 import React from "react";
 import { navigateMedia } from "@/utils/navigate";
 import BookmarkButton from "./BookmarkButton";
-type Media = {
-  id: number;
-  title?: string;
-  name?: string;
-  poster_path: string;
-  overview: string;
-  media_type: "movie" | "tv";
-  vote_average: string;
-  genre_ids?: number[];
-};
+import type { Media } from "@/types/media.types";
 type LatestProps = {
   item: Media;
 };

@@ -4,12 +4,7 @@ import NameForm from "./NameForm";
 import EmailForm from "./EmailForm";
 import PasswordForm from "./PasswordForm";
 import { useUpdateAccount } from "@/hooks/user/useUpdateAccount";
-
-type ModalFormProps = {
-  modalVisible: boolean;
-  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  currentType?: "name" | "email" | "password";
-};
+import type { ModalFormProps } from "@/types/user.types";
 const ModalForm = ({
   modalVisible,
   setModalVisible,

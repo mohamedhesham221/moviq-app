@@ -3,14 +3,14 @@ import type {
   ProductionCompany,
   ProductionCountry,
   SpokenLanguage,
-} from "./api";
+} from "./api.types";
 
 export interface Movie {
   title: string;
   id: number;
   vote_average: string;
   backdrop_path: string;
-  poster_path: string ;
+  poster_path: string;
   budget: number;
   genres: Genre[];
   homepage: string;
@@ -29,5 +29,5 @@ export interface Movie {
   status: string;
   tagline: string;
   vote_count: number;
-  media_type:"movie"
+  media_type: "movie";
 }

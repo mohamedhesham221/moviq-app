@@ -99,4 +99,3 @@ export interface MediaVideos {
   id?: number;
   results: Video[]
 }
-export type MediaFilter = "now_playing" | "upcoming" | "popular" | "top_rated" |"airing_today" | "on_the_air"

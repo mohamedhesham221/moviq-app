@@ -1,14 +1,9 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
-import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { Trend } from "@/interfaces/api";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
+import { Trend } from "@/types/api.types";
 import { navigateMedia } from "@/utils/navigate";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React from "react";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import BookmarkButton from "./BookmarkButton";
 const TrendingItem = ({
   title,
@@ -29,7 +24,13 @@ const TrendingItem = ({
           className="w-full h-full"
           resizeMode={backdrop_path ? "cover" : "contain"}
         >
-          <BookmarkButton id={id} poster_path={poster_path} media_type={media_type} name={name} title={title} />
+          <BookmarkButton
+            id={id}
+            poster_path={poster_path}
+            media_type={media_type}
+            name={name}
+            title={title}
+          />
         </ImageBackground>
       </View>
 

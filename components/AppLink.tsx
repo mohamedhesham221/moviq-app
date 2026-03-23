@@ -1,12 +1,7 @@
 import { View, Text} from 'react-native'
-import { Link, Href } from 'expo-router'
+import { Link } from 'expo-router'
 import React from 'react'
-
-type AppLinkProps = {
-  text: string;
-  className?: string;
-  href: Href;
-}
+import type { AppLinkProps } from '@/types/button.types'
 const AppLink = ({text, className, href}: AppLinkProps) => {
   return (
     <Link href={href} className={className}>

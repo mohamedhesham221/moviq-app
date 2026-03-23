@@ -1,6 +1,6 @@
-import { View, FlatList } from "react-native";
+import { MediaCast } from "@/types/api.types";
 import React from "react";
-import { MediaCast } from "@/interfaces/api";
+import { FlatList, View } from "react-native";
 import SectionHeader from "../SectionHeader";
 import ActorProfile from "./ActorProfile";
 

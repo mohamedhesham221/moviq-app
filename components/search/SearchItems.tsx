@@ -5,10 +5,8 @@ import { useSearch } from "@/hooks/useSearch";
 import Loader from "../Loader";
 import PosterItem from "../PosterItem";
 import ErrorComponent from "../ErrorComponent";
+import type { SearchItemsProps } from "@/types/search.types";
 
-type SearchItemsProps = {
-  searchQuery: string;
-};
 const SearchItems = ({ searchQuery }: SearchItemsProps) => {
   const { results, isLoading, isError } = useSearch(searchQuery);
   if (results.length === 0 || !searchQuery || !results) {

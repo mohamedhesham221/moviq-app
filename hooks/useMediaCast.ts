@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetcher } from "@/services/api/handleRequest";
 import { ENDPOINTS } from "@/constants/apiRoutes";
-import type { MediaCast, Cast } from "@/interfaces/api";
+import { fetcher } from "@/services/api/handleRequest";
+import type { Cast, MediaCast } from "@/types/api.types";
+import { useQuery } from "@tanstack/react-query";
 
 type MediaCastProps = {
   id: number;
@@ -18,6 +18,6 @@ export function useMediaCast({ id, type }: MediaCastProps) {
     select: (data) => data.cast,
     staleTime: 1000 * 60 * 5,
   });
-  
+
   return { cast, isError, isLoading };
 }

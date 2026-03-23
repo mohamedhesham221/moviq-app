@@ -1,5 +1,5 @@
-import { useRemoveBookmark } from "@/hooks/bookamrk/useRemoveBookmark";
-import type { Bookmark } from "@/interfaces/bookmarks";
+import { useRemoveBookmark } from "@/hooks/bookmark/useRemoveBookmark";
+import type { Bookmark } from "@/types/bookmarks.types";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
 import { Dimensions, Pressable, View } from "react-native";

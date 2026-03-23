@@ -1,7 +1,7 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import { Cast } from "@/interfaces/api";
 import { IMAGE_BASE_URL, PROFILE_SIZE } from "@/constants/imageURL";
+import { Cast } from "@/types/api.types";
+import React from "react";
+import { Image, Text, View } from "react-native";
 const ActorProfile = ({
   profile_path,
   name,
@@ -9,7 +9,7 @@ const ActorProfile = ({
   known_for_department,
 }: Cast) => {
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");
-  const img = `${IMAGE_BASE_URL}${PROFILE_SIZE}${profile_path}`
+  const img = `${IMAGE_BASE_URL}${PROFILE_SIZE}${profile_path}`;
   return (
     <View className="flex-col gap-[2px]  w-32">
       <Image

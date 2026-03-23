@@ -1,10 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import Input from "../Input";
-type SearchBarProps = {
-  searchQuery: string;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-};
+import { SearchBarProps } from "@/types/search.types";
 const SearchBar = ({ searchQuery, setSearchQuery }: SearchBarProps) => {
   
   const handleSearchChange = (text: string) => {

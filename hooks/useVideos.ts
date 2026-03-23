@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetcher } from "@/services/api/handleRequest";
 import { ENDPOINTS } from "@/constants/apiRoutes";
-import { MediaVideos, Video } from "@/interfaces/api";
+import { fetcher } from "@/services/api/handleRequest";
+import { MediaVideos, Video } from "@/types/api.types";
+import { useQuery } from "@tanstack/react-query";
 
 type VideosProps = {
   id: number;

@@ -1,8 +1,8 @@
-import { View, TextInput, TextInputProps } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
+import { TextInput, TextInputProps, View } from "react-native";
 
-import { IconName } from "@/interfaces/icon";
+import { IconName } from "@/types/icon.types";
 interface InputProps extends TextInputProps {
   icon: IconName;
 }

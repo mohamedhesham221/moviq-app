@@ -2,17 +2,12 @@ import Divider from "@/components/Divider";
 import LogoutButton from "@/components/user/LogoutButton";
 import ProfileHeader from "@/components/user/ProfileHeader";
 import { useUser } from "@/hooks/user/useUser";
-import { IconName } from "@/interfaces/icon";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import React from "react";
 import { Text, View } from "react-native";
 import Loader from "../Loader";
 import AccountField from "./AccountField";
-type Field = {
-  icon: IconName;
-  title: string;
-  fieldType?: "name" | "email" | "password";
-};
+import type { Field } from "@/types/user.types";
 const fields: Field[] = [
   {
     icon: "rename",

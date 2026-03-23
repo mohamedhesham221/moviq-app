@@ -1,7 +1,7 @@
-import type { TMDBResponse } from "@/interfaces/api";
-import type { Movie } from "@/interfaces/movie";
 import { MOVIE_ENDPOINTS } from "@/constants/apiRoutes";
 import { fetcher } from "@/services/api/handleRequest";
+import type { TMDBResponse } from "@/types/api.types";
+import type { Movie } from "@/types/movie.types";
 import { useQuery } from "@tanstack/react-query";
 
 export function useMovies(path: string) {
@@ -10,5 +10,5 @@ export function useMovies(path: string) {
     queryFn: () => fetcher<TMDBResponse<Movie>>(MOVIE_ENDPOINTS.MOVIES(path)),
   });
   const movies = data?.results ?? [];
-  return {movies, isError, isLoading};
+  return { movies, isError, isLoading };
 }

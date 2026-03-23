@@ -1,21 +1,16 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
-import React from "react";
-import { Season } from "@/interfaces/api";
-import { IMAGE_BASE_URL, POSTER_SIZE } from "@/constants/imageURL";
 import GradientComponent from "@/components/GradientComponent";
+import { IMAGE_BASE_URL, POSTER_SIZE } from "@/constants/imageURL";
+import { Season } from "@/types/api.types";
+import React from "react";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import SeasonModal from "./SeasonModal";
 
 type SeasonItemProps = {
   season: Season;
 };
-const SeasonItem = ({ season}: SeasonItemProps) => {
+const SeasonItem = ({ season }: SeasonItemProps) => {
   const [imgError, setImgError] = React.useState(false);
-    const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");
   const imageUrl = `${IMAGE_BASE_URL}${POSTER_SIZE}${season.poster_path}`;
 
@@ -43,7 +38,7 @@ const SeasonItem = ({ season}: SeasonItemProps) => {
           </GradientComponent>
         </ImageBackground>
       </TouchableOpacity>
-      <SeasonModal visible={visible} setVisible={setVisible} season={season}/>
+      <SeasonModal visible={visible} setVisible={setVisible} season={season} />
     </>
   );
 };

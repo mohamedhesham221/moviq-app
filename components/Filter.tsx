@@ -1,11 +1,6 @@
-import { View, Text, Pressable, FlatList } from "react-native";
+import type { FilterProps } from "@/types/filter.types";
 import React from "react";
-import type { MediaFilter } from "@/interfaces/api";
-type FilterProps = {
-  filters: { label: string; value: MediaFilter }[];
-  filterVal: MediaFilter;
-  setFilterVal: React.Dispatch<React.SetStateAction<MediaFilter>>;
-};
+import { FlatList, Pressable, Text, View } from "react-native";
 const Filter = ({ filters, filterVal, setFilterVal }: FilterProps) => {
   return (
     <View className="flex-row  items-center gap-4 mb-2">

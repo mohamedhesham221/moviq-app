@@ -1,7 +1,7 @@
-import { databases } from "./appwrite";
+import { Bookmark } from "@/types/bookmarks.types";
 import { Query } from "react-native-appwrite";
+import { databases } from "./appwrite";
 import { getAccount } from "./userAuth";
-import { Bookmark } from "@/interfaces/bookmarks";
 
 const DATABASE_ID = "69b60f26000bf913a631";
 const BOOKMARK_COLLECTION_ID = "bookmarks";

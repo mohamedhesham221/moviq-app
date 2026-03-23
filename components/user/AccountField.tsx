@@ -1,14 +1,8 @@
-import { View, Text, Pressable } from "react-native";
-import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { IconName } from "@/interfaces/icon";
+import React from "react";
+import { Pressable, Text, View } from "react-native";
 import ModalForm from "./ModalForm";
-
-type AccountFieldProps = {
-  icon: IconName;
-  title: string;
-  type?: "name" | "email" | "password";
-};
+import type { AccountFieldProps } from "@/types/user.types";
 const AccountField = ({ icon, title, type }: AccountFieldProps) => {
   const [modalVisible, setModalVisible] = React.useState<boolean>(false);
   const [currentType, setCurrentType] = React.useState<

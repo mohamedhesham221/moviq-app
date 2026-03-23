@@ -1,12 +1,6 @@
 import { TouchableOpacity, Text } from "react-native";
 import React from "react";
-
-type AppButtonProps = {
-  text: string;
-  className?: string;
-  onPress?: () => void;
-  disabled?: boolean;
-};
+import type { AppButtonProps } from "@/types/button.types";
 const AppButton = ({ text, className, onPress, disabled }: AppButtonProps) => {
 
 

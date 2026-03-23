@@ -1,12 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import Input from "../Input";
-type EmailFormProps = {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  currentPassword: string;
-  setCurrentPassword: React.Dispatch<React.SetStateAction<string>>;
-};
+import type { EmailFormProps } from "@/types/user.types";
 const EmailForm = ({ email, setEmail, currentPassword, setCurrentPassword }: EmailFormProps) => {
   const handleEmailChange = (text: string) => {
     setEmail(text);

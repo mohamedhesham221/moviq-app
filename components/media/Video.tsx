@@ -1,18 +1,11 @@
-import { View, Modal, Pressable } from "react-native";
+import { Modal, Pressable, View } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 
-import React from "react";
-import { Video } from "@/interfaces/api";
+import { Video } from "@/types/api.types";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React from "react";
+import type { MediaVideoProps } from "@/types/media.types";
 
-type MediaVideoProps = {
-  videos: Video[];
-  onStateChange: (state: string) => void;
-  visible: boolean;
-  playing: boolean;
-  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-};
 const MediaVideo = ({
   videos,
   onStateChange,

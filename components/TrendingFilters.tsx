@@ -1,15 +1,11 @@
 import { View, Text, Pressable } from 'react-native'
 import React from 'react'
-
+import type { TrendingFiltersProps } from '@/types/filter.types';
   const trendingFilters = [
     { label: "Today", value: "day" },
     { label: "This Week", value: "week" },
   ] as const;
 
-  interface TrendingFiltersProps {
-    timeframe: "day" | "week";
-    setTimeframe: React.Dispatch<React.SetStateAction<"day" | "week">>;
-  }
 const TrendingFilters = ({ timeframe, setTimeframe }: TrendingFiltersProps) => {
     
   return (

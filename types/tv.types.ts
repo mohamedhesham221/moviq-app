@@ -1,13 +1,13 @@
 import type {
+  Creator,
+  Episode,
   Genre,
+  Network,
   ProductionCompany,
   ProductionCountry,
-  SpokenLanguage,
   Season,
-  Network,
-  Episode,
-  Creator,
-} from "./api";
+  SpokenLanguage,
+} from "./api.types";
 
 export interface Tv {
   backdrop_path: string;
@@ -40,5 +40,5 @@ export interface Tv {
   tagline: string;
   vote_average: string;
   vote_count: number;
-  media_type:"tv"
+  media_type: "tv";
 }

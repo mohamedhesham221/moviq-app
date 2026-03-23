@@ -1,7 +1,7 @@
+import type { MediaFilter } from "@/types/api.types";
 import React from "react";
-import SectionHeader from "../SectionHeader";
 import Filter from "../Filter";
-import type { MediaFilter } from "@/interfaces/api";
+import SectionHeader from "../SectionHeader";
 import SeriesItems from "./SeriesItems";
 
 const Filters: { label: string; value: MediaFilter }[] = [

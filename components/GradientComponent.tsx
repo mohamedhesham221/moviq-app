@@ -1,9 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
-
-type GradientProps = {
-  children: React.ReactNode,
-  startY : number;
-}
+import type { GradientProps } from "@/types/gradient.types";
 const GradientComponent = ({ children, startY = 1 }: GradientProps) => {
   return (
     <LinearGradient

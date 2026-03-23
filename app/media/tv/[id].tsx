@@ -1,18 +1,18 @@
-import { View, Text, ScrollView } from "react-native";
-import React from "react";
-import { useLocalSearchParams } from "expo-router";
-import { useGetTvDetails } from "@/hooks/series/useGetTvDetails";
-import Loader from "@/components/Loader";
-import MediaPicture from "@/components/media/MediaPicture";
 import ErrorComponent from "@/components/ErrorComponent";
-import MediaOverview from "@/components/media/MediaOverview";
-import MediaCastWrapper from "@/components/media/MediaCastWrapper";
-import { useMediaCast } from "@/hooks/useMediaCast";
+import Loader from "@/components/Loader";
 import LastEpisode from "@/components/media/LastEpisode";
+import MediaCastWrapper from "@/components/media/MediaCastWrapper";
+import MediaOverview from "@/components/media/MediaOverview";
+import MediaPicture from "@/components/media/MediaPicture";
 import Seasons from "@/components/media/Seasons";
-import WatchButton from "@/components/media/WatchButton";
-import { useVideos } from "@/hooks/useVideos";
 import MediaVideo from "@/components/media/Video";
+import WatchButton from "@/components/media/WatchButton";
+import { useGetTvDetails } from "@/hooks/series/useGetTvDetails";
+import { useMediaCast } from "@/hooks/useMediaCast";
+import { useVideos } from "@/hooks/useVideos";
+import { useLocalSearchParams } from "expo-router";
+import React from "react";
+import { ScrollView, View } from "react-native";
 
 export default function TvDetails() {
   const { id } = useLocalSearchParams();

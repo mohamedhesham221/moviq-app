@@ -1,9 +1,13 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { Movie } from "@/types/movie.types";
+import {
+  formatReleaseDate,
+  formatRevenue,
+  formatRuntime,
+} from "@/utils/format";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { Movie } from "@/interfaces/movie";
+import React from "react";
+import { Text, View } from "react-native";
 import SectionHeader from "../SectionHeader";
-import { formatRuntime, formatReleaseDate, formatRevenue } from "@/utils/format";
 type MediaDetailsProps = Pick<
   Movie,
   "tagline" | "runtime" | "release_date" | "revenue"

@@ -1,9 +1,9 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import { Episode } from "@/interfaces/api";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
-import SectionHeader from "../SectionHeader";
+import { Episode } from "@/types/api.types";
 import { formatReleaseDate } from "@/utils/format";
+import React from "react";
+import { Image, Text, View } from "react-native";
+import SectionHeader from "../SectionHeader";
 type LastEpisodeProps = {
   episode: Episode;
 };
@@ -18,7 +18,7 @@ const LastEpisode = ({ episode }: LastEpisodeProps) => {
         {/* Image */}
         <Image
           className="h-40 rounded-xl"
-          resizeMode={episode.still_path? "cover": "contain"}
+          resizeMode={episode.still_path ? "cover" : "contain"}
           source={
             episode.still_path
               ? {

@@ -8,16 +8,7 @@ import Trending from "./Trending";
 import AppLink from "./AppLink";
 import { Href } from "expo-router";
 import LatestSkeleton from "./skeletons/LatestSkeleton";
-type Media = {
-  id: number;
-  title?: string;
-  name?: string;
-  poster_path: string;
-  media_type: "movie" | "tv";
-  overview: string;
-  vote_average: string;
-  genre_ids?: number[];
-};
+import type { Media } from "@/types/media.types";
 const Latest = () => {
   const { movies } = useNowPlaying();
   const { series } = useOnTheAir();

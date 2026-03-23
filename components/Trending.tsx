@@ -1,13 +1,13 @@
-import { View, FlatList } from "react-native";
-import React from "react";
 import { ENDPOINTS } from "@/constants/apiRoutes";
 import { fetcher } from "@/services/api/handleRequest";
+import { TMDBResponse, Trend } from "@/types/api.types";
 import { useQuery } from "@tanstack/react-query";
-import TrendingFilters from "./TrendingFilters";
-import TrendingSkeleton from "./skeletons/TrendingSkeleton";
-import { TMDBResponse, Trend } from "@/interfaces/api";
-import TrendingItem from "./TrendingItem";
+import React from "react";
+import { FlatList, View } from "react-native";
 import SectionHeader from "./SectionHeader";
+import TrendingFilters from "./TrendingFilters";
+import TrendingItem from "./TrendingItem";
+import TrendingSkeleton from "./skeletons/TrendingSkeleton";
 const Trending = () => {
   const [timeframe, setTimeframe] = React.useState<"day" | "week">("day");
   const { data, isLoading, error } = useQuery<TMDBResponse<Trend>>({

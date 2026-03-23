@@ -1,10 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-
-type ButtonProps = {
-  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import type { ButtonProps } from "@/types/media.types";
 const WatchButton = ({ setVisible, setPlaying }: ButtonProps) => {
   return (
     <View className="px-5">

@@ -1,50 +1,128 @@
-# Welcome to your Expo app 👋
+# moviQ
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**moviQ** is a fullstack mobile app for discovering trending movies and TV series — built with React Native, Expo, NativeWind, and TypeScript.
 
-## Get started
+---
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+### Loader Screen
 
-2. Start the app
+- Automatically checks if a user session exists on app launch
+- Redirects to the appropriate screen based on auth state
 
-   ```bash
-   npx expo start
-   ```
+### Welcome Screen
 
-In the output, you'll find options to open the app in a
+- Entry point for new or unauthenticated users
+- Choose to continue as a **Guest** or sign in / register via the auth system
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Movies Screen
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Browse movies with filter tabs: *Popular* · *Now Playing* · *Upcoming* · *Top Rated*
 
-## Get a fresh project
+### TV Screen
 
-When you're ready, run:
+- Browse TV series with filter tabs: *Popular* · *Airing Today* · *On the Air* · *Top Rated*
+
+### Authentication
+
+- Sign up / Login with secure auth powered by **Appwrite**
+- Protected routes for authenticated users
+
+### Home Tab
+
+- **Trending** section with filter options: *Today* and *This Week*
+- **Now Playing** (Movies) and **On the Air** (TV Series) sections
+- Each section displays 5 items with: Poster · Name · Rating · Genres · Overview
+- Tap any title to navigate to its detail page
+- Bookmark any movie or series (requires login)
+
+### Search Tab
+
+- Search bar to find any movie or series
+- Tap a poster to view full details
+
+### Watchlist Tab *(Protected)*
+
+- View all your bookmarked movies and series
+- Requires user authentication to access
+
+### Profile Tab *(Protected)*
+
+- Displays your name and email
+- Update your **name**, **email**, or **password** directly from the app
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | React Native + Expo |
+| Language | TypeScript |
+| Styling | NativeWind (Tailwind CSS for RN) |
+| Auth & Database | Appwrite |
+| Forms | react-hook-form + Yup |
+| Video | react-native-youtube-iframe |
+| Icons | @expo/vector-icons |
+| Fonts | @expo-google-fonts/poppins |
+| Notifications | react-native-toast-message |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- An [Appwrite](https://appwrite.io/) project set up with auth and database enabled
+
+### Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/your-username/moviq.git
+cd moviq
+
+# Install dependencies
+npm install
+
+# Start the development server
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Environment Variables
 
-## Learn more
+Create a `.env` file in the root directory and add your Appwrite credentials:
 
-To learn more about developing your project with Expo, look at the following resources:
+```env
+EXPO_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+EXPO_PUBLIC_APPWRITE_PROJECT_NAME=your_project_name
+EXPO_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+EXPO_PUBLIC_API_KEY=your_tmdb_key
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 📁 Project Structure
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+ moviQ/
+    ├── app/
+    │   └── (auth)/
+    │       ├── _layout
+    │       ├── login
+    │       └── register
+    ├── assets/
+    │   └── images
+    ├── components
+    ├── hooks
+    ├── services/
+    │   └── api
+    ├── types
+    ├── utils
+    ├── .gitignore
+    ├── app.json
+    └── tailwind.config.json
+```

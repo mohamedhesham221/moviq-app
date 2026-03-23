@@ -1,8 +1,8 @@
 import { View, SectionList } from "react-native";
 import React from "react";
 import SectionHeader from "@/components/SectionHeader";
-import { useNowPlaying } from "@/hooks/useNowPlaying";
-import { useOnTheAir } from "@/hooks/useOnTheAir";
+import { useNowPlaying } from "@/hooks/movies/useNowPlaying";
+import { useOnTheAir } from "@/hooks/series/useOnTheAir";
 import LatestItem from "./LatestItem";
 import Trending from "./Trending";
 import Loader from "./Loader";

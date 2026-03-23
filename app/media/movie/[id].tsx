@@ -1,7 +1,7 @@
 import { View, ScrollView } from "react-native";
 import React from "react";
 import { useLocalSearchParams } from "expo-router";
-import { useGetMovieDetails } from "@/hooks/useGetMovieDetails";
+import { useGetMovieDetails } from "@/hooks/movies/useGetMovieDetails";
 import Loader from "@/components/Loader";
 import MediaPicture from "@/components/media/MediaPicture";
 import ErrorComponent from "@/components/ErrorComponent";

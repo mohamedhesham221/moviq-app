@@ -3,7 +3,7 @@ import React from "react";
 import NameForm from "./NameForm";
 import EmailForm from "./EmailForm";
 import PasswordForm from "./PasswordForm";
-import { useUpdateAccount } from "../../hooks/useUpdateAccount";
+import { useUpdateAccount } from "@/hooks/user/useUpdateAccount";
 
 type ModalFormProps = {
   modalVisible: boolean;

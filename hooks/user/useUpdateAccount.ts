@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { updateEmail, updateName, updatePassword } from "../services/userAuth";
+import { updateEmail, updateName, updatePassword } from "@/services/userAuth";
 import { Alert } from "react-native";
 export function useUpdateAccount(currentPassword: string) {
   const updateNameMutation = useMutation({

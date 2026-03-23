@@ -1,17 +1,17 @@
-import { View, Pressable, Dimensions } from "react-native";
-import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import PosterItem from "../PosterItem";
-import { useRemoveBookmark } from "@/hooks/useRemoveBookmark";
+import { useRemoveBookmark } from "@/hooks/bookamrk/useRemoveBookmark";
 import type { Bookmark } from "@/interfaces/bookmarks";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React from "react";
+import { Dimensions, Pressable, View } from "react-native";
+import PosterItem from "../PosterItem";
 
-const {width} = Dimensions.get("window");
-const itemWidth = width / 2 - 16
+const { width } = Dimensions.get("window");
+const itemWidth = width / 2 - 16;
 const WatchlistItem = ({ item }: { item: Bookmark }) => {
   const { remove } = useRemoveBookmark();
 
   return (
-    <View className=" relative" style={{width: itemWidth}}>
+    <View className=" relative" style={{ width: itemWidth }}>
       <PosterItem
         poster={item.mediaPoster}
         title={item.mediaName}

@@ -1,11 +1,11 @@
-import { View, Text, FlatList } from "react-native";
-import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import Loader from "../Loader";
+import { useUser } from "@/hooks/user/useUser";
 import { useWatchlist } from "@/hooks/useWatchlist";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React from "react";
+import { FlatList, Text, View } from "react-native";
 import ErrorComponent from "../ErrorComponent";
+import Loader from "../Loader";
 import SectionHeader from "../SectionHeader";
-import { useUser } from "@/hooks/useUser";
 import WatchlistItem from "./WatchlistItem";
 
 const PersonalWatchlist = () => {
@@ -36,9 +36,7 @@ const PersonalWatchlist = () => {
       <FlatList
         data={bookmarks}
         keyExtractor={(item) => item.mediaId.toString()}
-        renderItem={({ item }) => (
-          <WatchlistItem item={item}/>
-        )}
+        renderItem={({ item }) => <WatchlistItem item={item} />}
         numColumns={2}
         columnWrapperStyle={{
           justifyContent: "center",

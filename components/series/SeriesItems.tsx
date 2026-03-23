@@ -1,6 +1,6 @@
 import { FlatList } from "react-native";
 import React from "react";
-import { useSeries } from "@/hooks/useSeries";
+import { useSeries } from "@/hooks/series/useSeries";
 import Loader from "../Loader";
 import PosterItem from "../PosterItem";
 import ErrorComponent from "../ErrorComponent";

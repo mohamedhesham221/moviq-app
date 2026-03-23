@@ -1,7 +1,7 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addBookmark } from "@/services/database";
-import { useUser } from "./useUser";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Toast from "react-native-toast-message";
+import { useUser } from "../user/useUser";
 
 export function useAddBookmark() {
   const queryClient = useQueryClient();
@@ -19,15 +19,15 @@ export function useAddBookmark() {
       if (error.message === "DUPLICATE") {
         Toast.show({
           type: "customWarning",
-          text1: "Already Bookmarked!!"
-        })
+          text1: "Already Bookmarked!!",
+        });
       } else {
         Toast.show({
           type: "customError",
           text1: "Something Went Wrong!!",
-        })
+        });
       }
-    }
+    },
   });
   return { add };
 }

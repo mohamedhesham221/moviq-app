@@ -3,7 +3,7 @@ import AppLink from "@/components/AppLink";
 import { Text, View, ImageBackground } from "react-native";
 import GradientComponent from "@/components/GradientComponent";
 import React from "react";
-import {useUserSession} from "@/hooks/useUserSession";
+import {useUserSession} from "@/hooks/user/useUserSession";
 import { APP_ROUTES } from "@/constants/appRoutes";
 export default function Index() {
   const { toSignUp, activeSession } = useUserSession();

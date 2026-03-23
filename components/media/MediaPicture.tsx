@@ -1,21 +1,21 @@
-import { View, Text, ImageBackground, Pressable } from "react-native";
-import React from "react";
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from "@/constants/imageURL";
-import GradientComponent from "../GradientComponent";
+import { useAddBookmark } from "@/hooks/bookamrk/useAddBookmark";
+import { Genre } from "@/interfaces/api";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router } from "expo-router";
-import { Genre } from "@/interfaces/api";
-import { useAddBookmark } from "@/hooks/useAddBookmark";
+import React from "react";
+import { ImageBackground, Pressable, Text, View } from "react-native";
+import GradientComponent from "../GradientComponent";
 
 type MediaPictureProps = {
   backdropPath: string;
   posterPath: string;
   title?: string;
-  name?:string;
+  name?: string;
   id: number;
   vote_average: string;
   genres: Genre[];
-  media_type: "movie" | "tv"
+  media_type: "movie" | "tv";
 };
 const MediaPicture = ({
   backdropPath,
@@ -24,7 +24,7 @@ const MediaPicture = ({
   id,
   vote_average,
   genres,
-  media_type
+  media_type,
 }: MediaPictureProps) => {
   const [imgError, setImgError] = React.useState(false);
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");

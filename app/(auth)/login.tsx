@@ -6,7 +6,7 @@ import ErrorText from "@/components/auth/ErrorText";
 import LoadingText from "@/components/auth/LoadingText";
 import SuccessText from "@/components/auth/SuccessText";
 import { LoginProps, loginSchema } from "@/constants/authSchema";
-import { useLogin } from "@/hooks/useLogin";
+import { useLogin } from "@/hooks/user/useLogin";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";

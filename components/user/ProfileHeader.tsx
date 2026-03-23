@@ -1,6 +1,6 @@
-import { View, Text } from "react-native";
+import { useUser } from "@/hooks/user/useUser";
 import React from "react";
-import { useUser } from "@/hooks/useUser";
+import { Text, View } from "react-native";
 
 const ProfileHeader = () => {
   const { name, email } = useUser();

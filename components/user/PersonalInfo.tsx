@@ -1,13 +1,13 @@
-import { View, Text } from "react-native";
-import React from "react";
-import AccountField from "./AccountField";
-import ProfileHeader from "@/components/user/ProfileHeader";
 import Divider from "@/components/Divider";
 import LogoutButton from "@/components/user/LogoutButton";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { useUser } from "@/hooks/useUser";
+import ProfileHeader from "@/components/user/ProfileHeader";
+import { useUser } from "@/hooks/user/useUser";
 import { IconName } from "@/interfaces/icon";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React from "react";
+import { Text, View } from "react-native";
 import Loader from "../Loader";
+import AccountField from "./AccountField";
 type Field = {
   icon: IconName;
   title: string;
@@ -32,7 +32,7 @@ const fields: Field[] = [
 ];
 const PersonalInfo = () => {
   const { isLoading } = useUser();
-  
+
   if (isLoading) {
     return <Loader />;
   }

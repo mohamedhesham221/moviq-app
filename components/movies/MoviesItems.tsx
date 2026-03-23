@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import { useMovies } from "@/hooks/useMovies";
+import { useMovies } from "@/hooks/movies/useMovies";
 import Loader from "../Loader";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import PosterItem from "../PosterItem";

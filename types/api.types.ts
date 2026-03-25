@@ -51,10 +51,10 @@ export interface Episode {
   episode_number: number;
   episode_type: string;
   production_code: string;
-  runtime: number | null;
+  runtime: number;
   season_number: number;
   show_id: number;
-  still_path: string | null;
+  still_path: string;
 }
 export interface Season {
   air_date: string;

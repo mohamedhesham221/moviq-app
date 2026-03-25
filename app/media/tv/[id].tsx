@@ -17,7 +17,7 @@ import { ScrollView, View } from "react-native";
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
   const tvID = Number(id);
-  const { tv, isLoading, isError } = useGetTvDetails(tvID);
+  const { tv, isLoading, isError} = useGetTvDetails(tvID);
   const { cast } = useMediaCast({ id: tvID, type: "tv" });
   const { videos } = useVideos({ id: tvID, type: "tv" });
 
@@ -31,7 +31,6 @@ export default function TvDetails() {
   }, []);
   if (isLoading) return <Loader />;
   if (isError || !tv) return <ErrorComponent />;
-
   return (
     <ScrollView>
       <View className="pb-10">
@@ -46,9 +45,7 @@ export default function TvDetails() {
         />
         <MediaOverview overview={tv.overview} />
         <MediaCastWrapper cast={cast} />
-        {tv.last_episode_to_air && (
-          <LastEpisode episode={tv.last_episode_to_air} />
-        )}
+        <LastEpisode episode={tv.last_episode_to_air} />
         <Seasons seasons={tv.seasons} />
         <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
         <MediaVideo

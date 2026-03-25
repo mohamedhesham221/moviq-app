@@ -20,9 +20,9 @@ export interface Tv {
   in_production: boolean;
   languages: string[];
   last_air_date: string;
-  last_episode_to_air: Episode | null;
+  last_episode_to_air: Episode;
   name: string;
-  next_episode_to_air: Episode | null;
+  next_episode_to_air: Episode;
   networks: Network[];
   number_of_episodes: number;
   number_of_seasons: number;

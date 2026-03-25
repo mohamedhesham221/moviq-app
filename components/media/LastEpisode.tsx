@@ -11,6 +11,7 @@ const LastEpisode = ({ episode }: LastEpisodeProps) => {
   const placeholder = require("../../assets/images/No-Image-Placeholder.png");
   const imgURL = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${episode.still_path}`;
 
+  if (!episode) return null;
   return (
     <View className="pt-10 px-5">
       <SectionHeader text="Last Episode" />
@@ -29,7 +30,7 @@ const LastEpisode = ({ episode }: LastEpisodeProps) => {
         />
 
         {/* Content */}
-        <View className="flex-1">
+        <View>
           <Text
             numberOfLines={2}
             className="text-white text-lg font-poppins-bold"
@@ -54,7 +55,7 @@ const LastEpisode = ({ episode }: LastEpisodeProps) => {
             </Text>
 
             <Text className="text-highlight-color text-xs">
-              {episode.runtime ?? "-"}m
+              {episode.runtime && episode.runtime + "m"}
             </Text>
           </View>
 

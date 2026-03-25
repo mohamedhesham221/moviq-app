@@ -11,13 +11,13 @@ import { useMediaCast } from "@/hooks/useMediaCast";
 import { useVideos } from "@/hooks/useVideos";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 export default function MovieDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const movieID = Number(id);
   const { movie, isLoading, isError } = useGetMovieDetails(movieID);
   const { cast } = useMediaCast({ id: movieID, type: "movie" });
-  const { videos } = useVideos({ id: movieID, type: "movie" });
+  const { trailer } = useVideos({ id: movieID, type: "movie" });
   const [visible, setVisible] = React.useState(false);
   const [playing, setPlaying] = React.useState(true);
   //Stop playing video when video modal closed
@@ -50,15 +50,25 @@ export default function MovieDetails() {
           runtime={movie.runtime}
           tagline={movie.tagline}
         />
-        <WatchButton setVisible={setVisible} setPlaying={setPlaying} />
-        <MediaVideo
-          videos={videos}
-          onStateChange={onStateChange}
-          playing={playing}
-          visible={visible}
-          setVisible={setVisible}
-          setPlaying={setPlaying}
-        />
+        {trailer ? (
+          <>
+            <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
+            <MediaVideo
+              video={trailer}
+              onStateChange={onStateChange}
+              playing={playing}
+              visible={visible}
+              setVisible={setVisible}
+              setPlaying={setPlaying}
+            />
+          </>
+        ) : (
+          <View className="px-5 mt-5 w-full rounded-lg py-2">
+            <Text className="text-highlight-color font-poppins-bold text-center">
+              No Trailer Available
+            </Text>
+          </View>
+        )}
       </View>
     </ScrollView>
   );

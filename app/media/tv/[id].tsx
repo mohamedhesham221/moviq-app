@@ -1,3 +1,4 @@
+import React from "react";
 import ErrorComponent from "@/components/ErrorComponent";
 import Loader from "@/components/Loader";
 import LastEpisode from "@/components/media/LastEpisode";
@@ -11,16 +12,14 @@ import { useGetTvDetails } from "@/hooks/series/useGetTvDetails";
 import { useMediaCast } from "@/hooks/useMediaCast";
 import { useVideos } from "@/hooks/useVideos";
 import { useLocalSearchParams } from "expo-router";
-import React from "react";
-import { ScrollView, View } from "react-native";
-
+import { ScrollView, View, Text } from "react-native";
+import { Video } from "@/types/api.types";
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
   const tvID = Number(id);
-  const { tv, isLoading, isError} = useGetTvDetails(tvID);
+  const { tv, isLoading, isError } = useGetTvDetails(tvID);
   const { cast } = useMediaCast({ id: tvID, type: "tv" });
-  const { videos } = useVideos({ id: tvID, type: "tv" });
-
+  const { trailer } = useVideos({ id: tvID, type: "tv" });
   const [visible, setVisible] = React.useState(false);
   const [playing, setPlaying] = React.useState(true);
 
@@ -29,6 +28,7 @@ export default function TvDetails() {
       setPlaying(false);
     }
   }, []);
+
   if (isLoading) return <Loader />;
   if (isError || !tv) return <ErrorComponent />;
   return (
@@ -47,15 +47,25 @@ export default function TvDetails() {
         <MediaCastWrapper cast={cast} />
         <LastEpisode episode={tv.last_episode_to_air} />
         <Seasons seasons={tv.seasons} />
-        <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
-        <MediaVideo
-          videos={videos}
-          onStateChange={onStateChange}
-          playing={playing}
-          visible={visible}
-          setVisible={setVisible}
-          setPlaying={setPlaying}
-        />
+        {trailer ? (
+          <>
+            <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
+            <MediaVideo
+              video={trailer}
+              onStateChange={onStateChange}
+              playing={playing}
+              visible={visible}
+              setVisible={setVisible}
+              setPlaying={setPlaying}
+            />
+          </>
+        ) : (
+          <View className="px-5 mt-5 w-full rounded-lg py-2">
+            <Text className="text-highlight-color font-poppins-bold text-center">
+              No Trailer Available
+            </Text>
+          </View>
+        )}
       </View>
     </ScrollView>
   );

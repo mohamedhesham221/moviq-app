@@ -26,7 +26,7 @@ export type SeasonModalProps = {
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export type MediaVideoProps = {
-  videos: Video[];
+  video: Video;
   onStateChange: (state: string) => void;
   visible: boolean;
   playing: boolean;

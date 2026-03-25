@@ -96,6 +96,6 @@ export type Video = {
   id: string;
 }
 export interface MediaVideos {
-  id?: number;
-  results: Video[]
+  id: number;
+  results: Video[];
 }

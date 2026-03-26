@@ -17,7 +17,7 @@ nativewind-env.d.ts
 *.p12
 *.key
 *.mobileprovision
-
+eas.json
 # Metro
 .metro-health-check*
 
@@ -36,7 +36,6 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-eas.json
 app-example
 
 # generated native folders

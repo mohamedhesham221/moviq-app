@@ -1,6 +1,7 @@
 import type { IconName } from "./icon.types";
 export type CustomToastProps = {
-  text: string;
+  text1: string;
+  text2?:string;
   iconName: IconName;
   color: string;
 };

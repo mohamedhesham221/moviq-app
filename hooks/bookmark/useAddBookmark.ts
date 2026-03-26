@@ -25,6 +25,7 @@ export function useAddBookmark() {
         Toast.show({
           type: "customError",
           text1: "Something Went Wrong!!",
+          text2: "You are in Guest mode"
         });
       }
     },

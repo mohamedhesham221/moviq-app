@@ -2,7 +2,7 @@
   "expo": {
     "name": "moviQ",
     "slug": "moviQ",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "moviq",
@@ -11,10 +11,14 @@
     "splash": {
       "resizeMode": "cover",
       "image": "./assets/images/icon.png",
-      "backgroundColor": "#111111"
+      "backgroundColor": "#ffc700"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.moh221.moviQ",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -24,7 +28,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.moh221.moviQ"
     },
     "web": {
       "output": "static",
@@ -36,7 +41,9 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#111111"
+          "backgroundColor": "#ffc700",
+          "image": "./assets/images/icon.png",
+          "resizeMode": "cover"
         }
       ],
       "expo-font"
@@ -44,6 +51,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "bb2b2a21-6ee9-4eb8-8781-820ac1ae34c9"
+      }
     }
   }
 }

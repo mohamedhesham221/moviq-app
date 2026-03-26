@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 18.4.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_APPWRITE_PROJECT_ID": "6970c67e002e8c2b2b48",
+        "EXPO_PUBLIC_APPWRITE_PROJECT_NAME": "moviQ",
+        "EXPO_PUBLIC_APPWRITE_ENDPOINT": "https://nyc.cloud.appwrite.io/v1",
+        "EXPO_PUBLIC_API_KEY": "0fec28aa4a4e71067cf297bcf4f819b2"
+      }
+    },
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

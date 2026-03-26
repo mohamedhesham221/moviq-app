@@ -13,16 +13,22 @@ import { useMediaCast } from "@/hooks/useMediaCast";
 import { useVideos } from "@/hooks/useVideos";
 import { useLocalSearchParams } from "expo-router";
 import { ScrollView, View, Text } from "react-native";
-import { Video } from "@/types/api.types";
 export default function TvDetails() {
   const { id } = useLocalSearchParams();
   const tvID = Number(id);
   const { tv, isLoading, isError } = useGetTvDetails(tvID);
   const { cast } = useMediaCast({ id: tvID, type: "tv" });
   const { trailer } = useVideos({ id: tvID, type: "tv" });
-  const [visible, setVisible] = React.useState(false);
-  const [playing, setPlaying] = React.useState(true);
+  const [visible, setVisible] = React.useState<boolean>(false);
+  const [playing, setPlaying] = React.useState<boolean>(false);
+  const [isReady, setIsReady] = React.useState<boolean>(false);
 
+  //Hide placeholder after video is ready
+  const onPlayerReady = React.useCallback(() => {
+    setIsReady(true);
+  }, [setIsReady]);
+
+  //Stop playing video when video modal closed
   const onStateChange = React.useCallback((state: string) => {
     if (state === "ended") {
       setPlaying(false);
@@ -52,11 +58,15 @@ export default function TvDetails() {
             <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
             <MediaVideo
               video={trailer}
+              backdrop={tv.backdrop_path}
               onStateChange={onStateChange}
+              onPlayerReady={onPlayerReady}
               playing={playing}
               visible={visible}
+              isReady={isReady}
               setVisible={setVisible}
               setPlaying={setPlaying}
+              setIsReady={setIsReady}
             />
           </>
         ) : (

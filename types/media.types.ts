@@ -27,11 +27,15 @@ export type SeasonModalProps = {
 };
 export type MediaVideoProps = {
   video: Video;
+  backdrop: string;
   onStateChange: (state: string) => void;
+  onPlayerReady: (state: string) => void;
   visible: boolean;
   playing: boolean;
+  isReady: boolean;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
   setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsReady: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type ButtonProps = {

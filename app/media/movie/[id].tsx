@@ -18,8 +18,15 @@ export default function MovieDetails() {
   const { movie, isLoading, isError } = useGetMovieDetails(movieID);
   const { cast } = useMediaCast({ id: movieID, type: "movie" });
   const { trailer } = useVideos({ id: movieID, type: "movie" });
-  const [visible, setVisible] = React.useState(false);
-  const [playing, setPlaying] = React.useState(true);
+  const [visible, setVisible] = React.useState<boolean>(false);
+  const [playing, setPlaying] = React.useState<boolean>(false);
+  const [isReady, setIsReady] = React.useState<boolean>(false);
+
+  //Hide placeholder after video is ready
+  const onPlayerReady = React.useCallback(() => {
+    setIsReady(true);
+  }, [setIsReady]);
+
   //Stop playing video when video modal closed
   const onStateChange = React.useCallback((state: string) => {
     if (state === "ended") {
@@ -55,11 +62,15 @@ export default function MovieDetails() {
             <WatchButton setPlaying={setPlaying} setVisible={setVisible} />
             <MediaVideo
               video={trailer}
+              backdrop={movie.backdrop_path}
               onStateChange={onStateChange}
+              onPlayerReady={onPlayerReady}
               playing={playing}
               visible={visible}
+              isReady={isReady}
               setVisible={setVisible}
               setPlaying={setPlaying}
+              setIsReady={setIsReady}
             />
           </>
         ) : (

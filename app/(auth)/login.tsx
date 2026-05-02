@@ -12,10 +12,11 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Text, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const Login = () => {
   const { errorMessage, isLoading, isSuccess, handleLogin } = useLogin();
+  const [showPass, setShowPass] = React.useState<boolean>(true);
   //Using react-hook-form, yup for handling login
   const {
     control,
@@ -72,14 +73,23 @@ const Login = () => {
           control={control}
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
-            <Input
-              icon="lock"
-              placeholder="password"
-              secureTextEntry={true}
-              value={value}
-              onChangeText={onChange}
-              onBlur={onBlur}
-            />
+            <View className="relative">
+              <Input
+                icon="lock"
+                placeholder="password"
+                secureTextEntry={showPass}
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+              <MaterialCommunityIcons
+                name={showPass ? "eye-off" : "eye"}
+                size={24}
+                color="gray"
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+                onPress={() => setShowPass((prev) => !prev)}
+              />
+            </View>
           )}
         />
         {errors.password && (

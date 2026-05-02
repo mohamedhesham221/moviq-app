@@ -7,6 +7,7 @@ import LoadingText from "@/components/auth/LoadingText";
 import SuccessText from "@/components/auth/SuccessText";
 import { RegisterProps, registerSchema } from "@/constants/authSchema";
 import { useRegister } from "@/hooks/user/useRegister";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -26,6 +27,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 }
 const Register = () => {
   const { errorMessage, isLoading, isSuccess, handleRegister } = useRegister();
+  const [showPass, setShowPass] = React.useState<boolean>(true);
   const {
     control,
     handleSubmit,
@@ -99,14 +101,23 @@ const Register = () => {
           control={control}
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
-            <Input
-              icon="lock"
-              placeholder="password"
-              secureTextEntry={true}
-              value={value}
-              onChangeText={onChange}
-              onBlur={onBlur}
-            />
+            <View className="relative">
+              <Input
+                icon="lock"
+                placeholder="password"
+                secureTextEntry={showPass}
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+              <MaterialCommunityIcons
+                name={showPass ? "eye-off" : "eye"}
+                size={24}
+                color="gray"
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+                onPress={() => setShowPass((prev) => !prev)}
+              />
+            </View>
           )}
         />
         {errors.password && (

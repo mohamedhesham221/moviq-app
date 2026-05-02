@@ -51,16 +51,14 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           headerShown: false,
-
           tabBarStyle: {
             backgroundColor: styles.background,
             height: 70,
-            paddingTop: 5,
             borderColor: "transparent",
           },
           tabBarItemStyle: {
             justifyContent: "center",
-            alignItems: "center",
+            
           },
         }}
       >

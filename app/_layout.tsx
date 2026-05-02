@@ -11,6 +11,35 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useEffect } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import "./globals.css";
+import Toast, { ToastConfigParams } from "react-native-toast-message";
+import CustomToast from "@/components/CustomToast";
+
+//implement custom toasts for better UI & UX
+const toastConfig = {
+  customSuccess: ({ text1 }: ToastConfigParams<any>) => (
+    <CustomToast text1={text1 ?? ""} color="#22c55e" iconName="check-circle" />
+  ),
+
+  customError: ({ text1, text2 }: ToastConfigParams<any>) => (
+    <CustomToast
+      text1={text1 ?? ""}
+      text2={text2}
+      color="#ef4444"
+      iconName="close-circle"
+    />
+  ),
+
+  customWarning: ({ text1 }: ToastConfigParams<any>) => (
+    <CustomToast text1={text1 ?? ""} color="#facc15" iconName="alert" />
+  ),
+  customRemove: ({ text1 }: ToastConfigParams<any>) => (
+    <CustomToast
+      text1={text1 ?? ""}
+      color="#FF5B5B"
+      iconName="bookmark-remove"
+    />
+  ),
+};
 
 //stop splash screen before fonts loaded 
 SplashScreen.preventAutoHideAsync();
@@ -96,6 +125,13 @@ export default function RootLayout() {
             />
           </Stack>
         </QueryClientProvider>
+        {/**Toaster */}
+        <Toast
+        position="top"
+        bottomOffset={50}
+        config={toastConfig}
+        visibilityTime={2000}
+      />
       </SafeAreaProvider>
     </>
   );

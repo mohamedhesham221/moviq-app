@@ -4,8 +4,6 @@ import { router, Tabs } from "expo-router";
 import React from "react";
 import { Text } from "react-native";
 import { getAccount } from "@/services/userAuth";
-import Toast, { ToastConfigParams } from "react-native-toast-message";
-import CustomToast from "@/components/CustomToast";
 
 interface StyleScheme {
   background: string;
@@ -18,32 +16,6 @@ const styles: StyleScheme = {
   activeTint: "#ffc700",
   inactiveTint: "#FFFFFF",
   size: 28,
-};
-//implement custom toasts for better UI & UX
-const toastConfig = {
-  customSuccess: ({ text1 }: ToastConfigParams<any>) => (
-    <CustomToast text1={text1 ?? ""} color="#22c55e" iconName="check-circle" />
-  ),
-
-  customError: ({ text1, text2 }: ToastConfigParams<any>) => (
-    <CustomToast
-      text1={text1 ?? ""}
-      text2={text2}
-      color="#ef4444"
-      iconName="close-circle"
-    />
-  ),
-
-  customWarning: ({ text1 }: ToastConfigParams<any>) => (
-    <CustomToast text1={text1 ?? ""} color="#facc15" iconName="alert" />
-  ),
-  customRemove: ({ text1 }: ToastConfigParams<any>) => (
-    <CustomToast
-      text1={text1 ?? ""}
-      color="#FF5B5B"
-      iconName="bookmark-remove"
-    />
-  ),
 };
 const TabsLayout = () => {
   return (
@@ -173,12 +145,7 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-      <Toast
-        position="top"
-        bottomOffset={50}
-        config={toastConfig}
-        visibilityTime={2000}
-      />
+      
     </>
   );
 };

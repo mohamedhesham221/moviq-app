@@ -28,6 +28,7 @@
 
 - Sign up / Login with secure auth powered by **Appwrite**
 - Protected routes for authenticated users
+- Forget password features
 
 ### Home Tab
 
@@ -108,21 +109,40 @@ EXPO_PUBLIC_API_KEY=your_tmdb_key
 ## Project Structure
 
 ```
- moviQ/
-    ├── app/
-    │   └── (auth)/
-    │       ├── _layout
-    │       ├── login
-    │       └── register
-    ├── assets/
-    │   └── images
-    ├── components
-    ├── hooks
-    ├── services/
-    │   └── api
-    ├── types
-    ├── utils
-    ├── .gitignore
-    ├── app.json
-    └── tailwind.config.json
+.
+└── moviQ/
+    └── app/
+        ├── (auth)/
+        │   ├── _layout
+        │   ├── login
+        │   ├── register
+        │   ├── forget-password
+        │   └── reset-password
+        ├── (tabs)/
+        │   ├── _layout
+        │   ├── home
+        │   ├── profile
+        │   ├── search
+        │   └── watchlist
+        ├── movie
+        ├── tv
+        ├── _layout
+        ├── globals.css
+        ├── index.tsx
+        ├── movies.tsx
+        ├── series.tsx
+        ├── welcome
+        ├── assets/
+        │   └── images
+        ├── components
+        ├── constants
+        ├── hooks
+        ├── node_modules
+        ├── services
+        ├── types
+        ├── utils
+        ├── .env
+        ├── app.json
+        ├── .gitignore
+        └── tailwind.config.js
 ```

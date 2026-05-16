@@ -19,3 +19,8 @@ export const loginSchema = yup.object().shape({
   password: yup.string().required("Password is required"),
 });
 export type LoginProps = yup.InferType<typeof loginSchema>;
+
+export const forgetPasswordSchema = yup.object({
+  email: yup.string().email().required(),
+});
+export type ForgetPasswordProps = yup.InferType<typeof forgetPasswordSchema>;

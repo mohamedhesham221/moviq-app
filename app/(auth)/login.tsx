@@ -95,6 +95,11 @@ const Login = () => {
         {errors.password && (
           <Text className="text-red-500">{errors.password?.message}</Text>
         )}
+        <AppLink
+          text="Forget Password?"
+          href="/forget-password"
+          className="self-end mb-2"
+        />
         {/**Login button */}
         <AppButton
           text="Login"

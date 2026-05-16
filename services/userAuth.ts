@@ -1,6 +1,8 @@
 import { account } from "./appwrite";
 import { ID } from "react-native-appwrite";
 import type { RegisterProps, LoginProps } from "@/constants/authSchema";
+import * as Linking from "expo-linking";
+
 
 export const createAccount = async ({
   email,
@@ -37,3 +39,9 @@ export const updatePassword = async (
   return await account.updatePassword({ password, oldPassword });
 };
 
+export const forgetPassword = async (email: string) => {
+  return await account.createRecovery({
+    email,
+    url: Linking.createURL("resetPassword"),
+  });
+};

@@ -12,7 +12,6 @@ export default function AuthLayout() {
         screenOptions={{
           headerStyle: { backgroundColor: "#111111" },
           headerShadowVisible: false,
-          headerTintColor: "#fff",
           headerLeft: () => <BackButton />,
         }}
       >
@@ -32,12 +31,14 @@ export default function AuthLayout() {
           name="forget-password"
           options={{
             title: "Forget Password",
+            headerTintColor: "#fff",
           }}
         />
         <Stack.Screen
           name="reset-password"
           options={{
-            title: "",
+            title: "Reset Password",
+            headerTintColor: "#fff",
           }}
         />
       </Stack>

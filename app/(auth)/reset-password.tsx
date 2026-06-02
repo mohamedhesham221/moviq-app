@@ -6,7 +6,9 @@ import AuthText from "@/components/auth/AuthText";
 import AppButton from "@/components/AppButton";
 import useResetPassword from "@/hooks/user/useResetPassword";
 const ResetPassword = () => {
-  const { userId, secret } = useLocalSearchParams();
+  const params = useLocalSearchParams();
+  const userId = typeof params.userId === "string" ? params.userId : null;
+  const secret = typeof params.secret === "string" ? params.secret : null;
   const {
     handleResetPassword,
     errorMessage,

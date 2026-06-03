@@ -35,6 +35,10 @@ const ResetPassword = () => {
       secret as string,
       password,
       () => {
+        if (!userId || !secret) {
+          setErrorMessage("Invalid or expired reset link.");
+          return;
+        }
         setPassword("");
         setConfirmPassword("");
       },
@@ -50,13 +54,13 @@ const ResetPassword = () => {
       <Input
         icon="lock"
         placeholder="New Password"
-        keyboardType="email-address"
+        keyboardType="default"
         onChangeText={(text) => setPassword(text)}
       />
       <Input
         icon="security"
         placeholder="Confirm Password"
-        keyboardType="email-address"
+        keyboardType="default"
         onChangeText={(text) => setConfirmPassword(text)}
       />
       <AppButton

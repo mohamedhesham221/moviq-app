@@ -35,6 +35,7 @@ export const updatePassword = async (password: string, oldPassword: string) => {
 };
 
 export const forgetPassword = async (email: string) => {
+  console.log(Linking.createURL("reset-password"));
   return await account.createRecovery({
     email,
     url: Linking.createURL("reset-password"),

@@ -3,7 +3,7 @@ import { Client, Account, Databases} from "react-native-appwrite";
 const client = new Client()
   .setEndpoint(process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!)
   .setProject(process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!)
-  .setPlatform(process.env.EXPO_PUBLIC_APPWRITE_PACKAGE_NAME!);
+  .setPlatform(process.env.EXPO_PUBLIC_APPWRITE_HOST_NAME!);
 
 export const account = new Account(client);
 export const databases = new Databases(client)

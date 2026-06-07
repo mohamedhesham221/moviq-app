@@ -1,7 +1,6 @@
 import { account } from "./appwrite";
 import { ID } from "react-native-appwrite";
 import type { RegisterProps, LoginProps } from "@/constants/authSchema";
-import * as Linking from "expo-linking";
 export const createAccount = async ({
   email,
   password,
@@ -37,17 +36,6 @@ export const updatePassword = async (password: string, oldPassword: string) => {
 export const forgetPassword = async (email: string) => {
   return await account.createRecovery({
     email,
-    url: "moviq://reset-password",
-  });
-};
-export const resetPassword = async (
-  userId: string,
-  secret: string,
-  password: string,
-) => {
-  return await account.updateRecovery({
-    userId,
-    secret,
-    password,
+    url: "https://moviq-reset-password.vercel.app/",
   });
 };

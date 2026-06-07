@@ -25,7 +25,6 @@ export default function useForgetPassword() {
       console.error("Forget Password Error:", error);
       setErrorMessage("Failed to send password reset email. Please try again.");
       setIsSuccess(false);
-      console.error("Forget Password Error:", error);
     } finally {
       setIsLoading(false);
     }

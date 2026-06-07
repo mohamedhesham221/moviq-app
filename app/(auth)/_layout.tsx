@@ -34,13 +34,6 @@ export default function AuthLayout() {
             headerTintColor: "#fff",
           }}
         />
-        <Stack.Screen
-          name="reset-password"
-          options={{
-            title: "Reset Password",
-            headerTintColor: "#fff",
-          }}
-        />
       </Stack>
     </>
   );
